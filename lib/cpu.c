@@ -3,7 +3,7 @@
 #include <emu.h>
 
 cpu_context ctx = {0}; //initialise all to 0
- 
+
 void cpu_init() {
     ctx.regs.program_counter = 0x100;
 }
