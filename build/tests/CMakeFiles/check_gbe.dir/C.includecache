@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/common.h
+stdint.h
+-
+stdbool.h
+-
+stdio.h
+-
+stdlib.h
+-
+
+../include/cpu.h
+common.h
+-
+instructions.h
+-
+
+../include/emu.h
+common.h
+-
+
+../include/instructions.h
+common.h
+-
+
+/home/akshay/projects/gbemu/code/tests/check_gbe.c
+check.h
+-
+stdlib.h
+-
+stdio.h
+-
+emu.h
+-
+cpu.h
+-
+
