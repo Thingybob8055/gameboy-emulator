@@ -33,6 +33,8 @@ typedef struct{
     bool halted; //is cpu halted?
     bool stepping; //is cpu in stepping mode?
 
+    bool int_master_enabled;
+
 }cpu_context;
 
 void cpu_init();

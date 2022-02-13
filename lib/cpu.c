@@ -84,7 +84,13 @@ bool cpu_step(){
         u16 program_counter = ctx.regs.program_counter;
         fetch_instruction();
         fetch_data();
-        printf("Received Instruction: %02X   PC: %04X\n", ctx.current_opcode, program_counter);
+
+        //for logging
+        printf("%04X: %-7s (%02X %02X %02X) A: %02X B: %02X C: %02X\n", 
+            program_counter, inst_name(ctx.curr_inst->type), ctx.current_opcode,
+            bus_read(program_counter + 1), bus_read(program_counter + 2), ctx.regs.a, ctx.regs.b, ctx.regs.c);
+
+        //printf("Received Instruction: %02X   PC: %04X\n", ctx.current_opcode, program_counter);
 
         if (ctx.curr_inst == NULL){
             printf("[!]UNKNOWN INSTRUCTION! %02X\n", ctx.current_opcode);
