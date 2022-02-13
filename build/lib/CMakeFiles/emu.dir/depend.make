@@ -17,6 +17,12 @@ lib/CMakeFiles/emu.dir/cpu.c.o: ../include/emu.h
 lib/CMakeFiles/emu.dir/cpu.c.o: ../include/instructions.h
 lib/CMakeFiles/emu.dir/cpu.c.o: ../lib/cpu.c
 
+lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/cpu.h
+lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/emu.h
+lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/instructions.h
+lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../lib/cpu_proc.c
+
 lib/CMakeFiles/emu.dir/cpu_util.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/cpu_util.c.o: ../include/cpu.h
 lib/CMakeFiles/emu.dir/cpu_util.c.o: ../include/instructions.h

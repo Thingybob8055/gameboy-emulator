@@ -17,6 +17,12 @@ lib/CMakeFiles/emu.dir/cpu.c.o
  ../include/emu.h
  ../include/instructions.h
  /home/akshay/projects/gbemu/code/lib/cpu.c
+lib/CMakeFiles/emu.dir/cpu_proc.c.o
+ ../include/common.h
+ ../include/cpu.h
+ ../include/emu.h
+ ../include/instructions.h
+ /home/akshay/projects/gbemu/code/lib/cpu_proc.c
 lib/CMakeFiles/emu.dir/cpu_util.c.o
  ../include/common.h
  ../include/cpu.h

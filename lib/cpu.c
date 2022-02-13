@@ -6,20 +6,25 @@ cpu_context ctx = {0}; //initialise all to 0
 
 void cpu_init() {
     ctx.regs.program_counter = 0x100;
+    ctx.regs.a = 0x01;
 }
 
 static void fetch_instruction(){
     ctx.current_opcode = bus_read(ctx.regs.program_counter++); //we read from the bus using the program counter register
     ctx.curr_inst = instruction_by_opcode(ctx.current_opcode);
 
-    if (ctx.curr_inst == NULL){
-        printf("[!]UNKNOWN INSTRUCTION! %02X\n", ctx.current_opcode);
-        exit(-7);
-    }
+    // if (ctx.curr_inst == NULL){
+    //     printf("[!]UNKNOWN INSTRUCTION! %02X\n", ctx.current_opcode);
+    //     exit(-7);
+    // }
 }
 static void fetch_data(){
     ctx.dest_is_mem = false;
     ctx.mem_dest = 0;
+
+    if (ctx.curr_inst == NULL){
+        return;
+    }
 
     switch(ctx.curr_inst -> mode){ //switch the current instruction based on addressing mode.
         case AM_IMP: return; //nothing to be read to immediately return
@@ -57,7 +62,19 @@ static void fetch_data(){
 }
 
 static void execute(){
-    printf("[!]NOT YET IMPLEMENTED EXECUTION...........\n");
+    //printf("[!]NOT YET IMPLEMENTED EXECUTION...........\n");
+    //A function pointer
+    //we pass in the current instructions type
+    IN_PROC proc = inst_get_processor(ctx.curr_inst->type);
+    //this gives us back a function pointer or 0
+
+    if(!proc){
+        NO_IMPL
+    }
+
+    //if we found the function, we need to execute that function
+    proc(&ctx);
+
 }
 
 
@@ -68,6 +85,12 @@ bool cpu_step(){
         fetch_instruction();
         fetch_data();
         printf("Received Instruction: %02X   PC: %04X\n", ctx.current_opcode, program_counter);
+
+        if (ctx.curr_inst == NULL){
+            printf("[!]UNKNOWN INSTRUCTION! %02X\n", ctx.current_opcode);
+            exit(-7);
+        }
+        
         execute();
     }
     return true;

@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/akshay/projects/gbemu/code/lib/bus.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/bus.c.o"
   "/home/akshay/projects/gbemu/code/lib/cart.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/cart.c.o"
   "/home/akshay/projects/gbemu/code/lib/cpu.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/cpu.c.o"
+  "/home/akshay/projects/gbemu/code/lib/cpu_proc.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/cpu_proc.c.o"
   "/home/akshay/projects/gbemu/code/lib/cpu_util.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/cpu_util.c.o"
   "/home/akshay/projects/gbemu/code/lib/emu.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/emu.c.o"
   "/home/akshay/projects/gbemu/code/lib/instructions.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/instructions.c.o"

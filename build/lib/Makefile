@@ -264,6 +264,33 @@ cpu.c.s:
 	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/cpu.c.s
 .PHONY : cpu.c.s
 
+cpu_proc.o: cpu_proc.c.o
+
+.PHONY : cpu_proc.o
+
+# target to build an object file
+cpu_proc.c.o:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/cpu_proc.c.o
+.PHONY : cpu_proc.c.o
+
+cpu_proc.i: cpu_proc.c.i
+
+.PHONY : cpu_proc.i
+
+# target to preprocess a source file
+cpu_proc.c.i:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/cpu_proc.c.i
+.PHONY : cpu_proc.c.i
+
+cpu_proc.s: cpu_proc.c.s
+
+.PHONY : cpu_proc.s
+
+# target to generate assembly for a file
+cpu_proc.c.s:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/cpu_proc.c.s
+.PHONY : cpu_proc.c.s
+
 cpu_util.o: cpu_util.c.o
 
 .PHONY : cpu_util.o
@@ -422,6 +449,9 @@ help:
 	@echo "... cpu.o"
 	@echo "... cpu.i"
 	@echo "... cpu.s"
+	@echo "... cpu_proc.o"
+	@echo "... cpu_proc.i"
+	@echo "... cpu_proc.s"
 	@echo "... cpu_util.o"
 	@echo "... cpu_util.i"
 	@echo "... cpu_util.s"

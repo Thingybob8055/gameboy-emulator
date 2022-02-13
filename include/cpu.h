@@ -38,3 +38,20 @@ typedef struct{
 void cpu_init();
 bool cpu_step();
 u16 cpu_read_reg(reg_type rt);
+
+//this is a function pointer called IN_PROC (instruction processor)
+//A function that returns void, and takes in cpu_context pointer
+typedef void (*IN_PROC)(cpu_context *);
+//the function below gets the function processor (IN_PROC) by the instruction type.
+IN_PROC inst_get_processor(in_type type);
+//we create a function for each instruction
+
+//Pandocs has more detail
+//The Z (zero flag) is stored in the flag register and the BIT Macro
+//is used to get the bits, and for Flag Z, we get bit 7
+
+//gives value for zero andcarry flag
+#define CPU_FLAG_Z BIT(ctx->regs.f, 7)
+#define CPU_FLAG_C BIT(ctx->regs.f, 4)
+//#define CPU_FLAG_Z BIT(ctx.regs.f, 7)
+//#define CPU_FLAG_Z BIT(ctx.regs.f, 7)

@@ -10,10 +10,6 @@
 common.h
 -
 
-../include/cart.h
-common.h
--
-
 ../include/common.h
 stdint.h
 -
@@ -44,29 +40,5 @@ cpu.h
 bus.h
 -
 emu.h
--
-
-/home/akshay/projects/gbemu/code/lib/cpu_util.c
-cpu.h
--
-
-/home/akshay/projects/gbemu/code/lib/emu.c
-stdio.h
--
-emu.h
--
-cart.h
--
-cpu.h
--
-SDL2/SDL.h
--
-SDL2/SDL_ttf.h
--
-
-/home/akshay/projects/gbemu/code/lib/instructions.c
-instructions.h
--
-cpu.h
 -
 
