@@ -17,6 +17,8 @@ lib/CMakeFiles/emu.dir/cpu.c.o
  ../include/emu.h
  ../include/instructions.h
  /home/akshay/projects/gbemu/code/lib/cpu.c
+lib/CMakeFiles/emu.dir/cpu_fetch.c.o
+ /home/akshay/projects/gbemu/code/lib/cpu_fetch.c
 lib/CMakeFiles/emu.dir/cpu_proc.c.o
  ../include/common.h
  ../include/cpu.h

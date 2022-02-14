@@ -24,6 +24,7 @@ set(OLD_GLOB
   "/home/akshay/projects/gbemu/code/lib/bus.c"
   "/home/akshay/projects/gbemu/code/lib/cart.c"
   "/home/akshay/projects/gbemu/code/lib/cpu.c"
+  "/home/akshay/projects/gbemu/code/lib/cpu_fetch.c"
   "/home/akshay/projects/gbemu/code/lib/cpu_proc.c"
   "/home/akshay/projects/gbemu/code/lib/cpu_util.c"
   "/home/akshay/projects/gbemu/code/lib/emu.c"
