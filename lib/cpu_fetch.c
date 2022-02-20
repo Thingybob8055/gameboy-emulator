@@ -43,9 +43,46 @@ void fetch_data(){
             return;
         }
 
-        //load register to memory region
+        //load register to memory region, e.g loading A into the address of BC
         case AM_MR_R:
-            
+            ctx.fetch_data = cpu_read_reg(ctx.curr_inst->reg_2); //fetch data from register 2
+            ctx.mem_dest = cpu_read_reg(ctx.curr_inst->reg_1); //the destination is a memory location, so we set it to a memory destination
+            ctx.dest_is_mem = true;
+
+            //a special case for opcode E2, where we write to C with most significant bit set to FF, as a 16 bit address.
+            if(ctx.curr_inst->reg_1 == RT_C){
+                ctx.mem_dest |= 0xFF00;
+            }
+
+            return;
+
+        case AM_R_MR: //the oppossite of above
+            u16 addr = cpu_read_reg(ctx.curr_inst->reg_2);
+
+            if(ctx.curr_inst->reg_1 == RT_C){
+                addr |= 0xFF00;
+            }
+
+            ctx.fetch_data = bus_read(addr);
+            emu_cycles(1); //increment cpu cycles as we did bus read
+
+            return;
+
+        case AM_R_HLI: //load address of HL register and increment it
+            ctx.fetch_data = bus_read(cpu_read_reg(ctx.curr_inst->reg_2));
+            emu_cycles(1);
+
+            cpu_set_reg(RT_HL, cpu_read_reg(RT_HL) + 1); //set value of HL to HL+1
+
+            return;
+
+        case AM_R_HLD: //load address of HL register and increment it
+            ctx.fetch_data = bus_read(cpu_read_reg(ctx.curr_inst->reg_2));
+            emu_cycles(1);
+
+            cpu_set_reg(RT_HL, cpu_read_reg(RT_HL) - 1); //set value of HL to HL+1
+
+            return;
 
         default:
             printf("Not yet implemented addressing mode: %d\n", ctx.curr_inst -> mode);
