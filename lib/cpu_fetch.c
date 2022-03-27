@@ -1,4 +1,6 @@
 #include <cpu.h>
+#include <bus.h>
+#include <emu.h>
 
 static cpu_context ctx;
 
@@ -56,7 +58,7 @@ void fetch_data(){
 
             return;
 
-        case AM_R_MR: //the oppossite of above
+        case AM_R_MR: { //the oppossite of above
             u16 addr = cpu_read_reg(ctx.curr_inst->reg_2);
 
             if(ctx.curr_inst->reg_1 == RT_C){
@@ -66,7 +68,7 @@ void fetch_data(){
             ctx.fetch_data = bus_read(addr);
             emu_cycles(1); //increment cpu cycles as we did bus read
 
-            return;
+        } return;
 
         case AM_R_HLI: //load address of HL register and increment it
             ctx.fetch_data = bus_read(cpu_read_reg(ctx.curr_inst->reg_2));
@@ -76,13 +78,99 @@ void fetch_data(){
 
             return;
 
-        case AM_R_HLD: //load address of HL register and increment it
+        case AM_R_HLD: //load address of HL register and decrement it
             ctx.fetch_data = bus_read(cpu_read_reg(ctx.curr_inst->reg_2));
             emu_cycles(1);
 
-            cpu_set_reg(RT_HL, cpu_read_reg(RT_HL) - 1); //set value of HL to HL+1
+            cpu_set_reg(RT_HL, cpu_read_reg(RT_HL) - 1); //set value of HL to HL-1
 
             return;
+
+        case AM_HLI_R: //moving register value into HL register and incrementing it
+           ctx.fetch_data = bus_read(cpu_read_reg(ctx.curr_inst->reg_2)); //read from reg2
+           ctx.mem_dest = cpu_read_reg(ctx.curr_inst->reg_1); //mem dest is reg1
+           ctx.dest_is_mem = true;
+           cpu_set_reg(RT_HL, cpu_read_reg(RT_HL) + 1);
+           break;
+
+        case AM_HLD_R: //moving register value into HL register and incrementing it
+           ctx.fetch_data = bus_read(cpu_read_reg(ctx.curr_inst->reg_2)); //read from reg2
+           ctx.mem_dest = cpu_read_reg(ctx.curr_inst->reg_1); //mem dest is reg1
+           ctx.dest_is_mem = true;
+           cpu_set_reg(RT_HL, cpu_read_reg(RT_HL) - 1);
+           return;
+        
+        case AM_R_A8:
+            ctx.fetch_data = bus_read(ctx.regs.program_counter); //data read from program counter
+            emu_cycles(1);
+            ctx.regs.program_counter++;
+            return;
+        
+        case AM_A8_R: //oppossite, moving from register to A8
+            ctx.mem_dest = bus_read(ctx.regs.program_counter) | 0xFF00;
+            ctx.dest_is_mem = true;
+            emu_cycles(1);
+            ctx.regs.program_counter++;
+            return;
+
+        case AM_HL_SPR: //a special case for one instruction, load stack pointer and hl, incremented by r8
+            ctx.fetch_data = bus_read(ctx.regs.program_counter); //we get data from program counter
+            emu_cycles(1);
+            ctx.regs.program_counter++;
+            return;
+
+        case AM_D8:
+            ctx.fetch_data = bus_read(ctx.regs.program_counter); //we get data from program counter
+            emu_cycles(1);
+            ctx.regs.program_counter++;
+            return;
+
+        //moving a register to a 16 bit address
+        case AM_A16_R:
+        case AM_D16_R: {
+            u16 lo = bus_read(ctx.regs.program_counter); //reading the low value
+            emu_cycles(1);
+
+            u16 hi = bus_read(ctx.regs.program_counter + 1); //read the high value
+            emu_cycles(1);
+
+            ctx.mem_dest = lo | (hi << 8); //lo binary or with hi shifted 8
+            ctx.dest_is_mem = true;
+
+            ctx.regs.program_counter += 2; //increment program counter twice
+            ctx.fetch_data = cpu_read_reg(ctx.curr_inst->reg_2);
+
+        } return;
+
+        case AM_MR_D8: //loading D8 into memory address register
+            ctx.fetch_data = bus_read(ctx.regs.program_counter);
+            emu_cycles(1);
+            ctx.regs.program_counter++;
+            ctx.mem_dest = cpu_read_reg(ctx.curr_inst->reg_1);
+            ctx.dest_is_mem = true;
+            return;
+        
+        case AM_MR: //similar to above but we don't fetch data and read the value from first register
+            ctx.mem_dest = cpu_read_reg(ctx.curr_inst->reg_1);
+            ctx.dest_is_mem = true;
+            ctx.mem_dest = cpu_read_reg(bus_read(ctx.curr_inst->reg_1));
+            emu_cycles(1);
+            return;
+
+        case AM_R_A16: {
+            u16 lo = bus_read(ctx.regs.program_counter); //reading the low value
+            emu_cycles(1);
+
+            u16 hi = bus_read(ctx.regs.program_counter + 1); //read the high value
+            emu_cycles(1);
+
+            u16 addr = lo | (hi << 8); //lo binary or with hi shifted 8
+
+            ctx.regs.program_counter += 2; //increment program counter twice
+
+            ctx.fetch_data = bus_read(addr); //fetch data is bus read the address
+            emu_cycles(1);
+        } return;
 
         default:
             printf("Not yet implemented addressing mode: %d\n", ctx.curr_inst -> mode);

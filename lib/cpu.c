@@ -9,7 +9,7 @@ void cpu_init() {
     ctx.regs.a = 0x01;
 }
 
-static void fetch_instruction(){
+static void fetch_instruction() {
     ctx.current_opcode = bus_read(ctx.regs.program_counter++); //we read from the bus using the program counter register
     ctx.curr_inst = instruction_by_opcode(ctx.current_opcode);
 
@@ -19,7 +19,7 @@ static void fetch_instruction(){
     // }
 }
 
-static void execute(){
+static void execute() {
     //printf("[!]NOT YET IMPLEMENTED EXECUTION...........\n");
     //A function pointer
     //we pass in the current instructions type
@@ -35,8 +35,7 @@ static void execute(){
 
 }
 
-
-bool cpu_step(){
+bool cpu_step() {
     
     if(!ctx.halted){ //what happens in the cpu step when CPU is not halted.
         u16 program_counter = ctx.regs.program_counter;
@@ -50,7 +49,7 @@ bool cpu_step(){
 
         //printf("Received Instruction: %02X   PC: %04X\n", ctx.current_opcode, program_counter);
 
-        if (ctx.curr_inst == NULL){
+        if (ctx.curr_inst == NULL) {
             printf("[!]UNKNOWN INSTRUCTION! %02X\n", ctx.current_opcode);
             exit(-7);
         }

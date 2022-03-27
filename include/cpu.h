@@ -40,6 +40,8 @@ typedef struct{
 void cpu_init();
 bool cpu_step();
 u16 cpu_read_reg(reg_type rt);
+void cpu_set_reg(reg_type rt, u16 val);
+void fetch_data();
 
 //this is a function pointer called IN_PROC (instruction processor)
 //A function that returns void, and takes in cpu_context pointer
