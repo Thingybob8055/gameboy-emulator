@@ -2,7 +2,7 @@
 #include <bus.h>
 #include <emu.h>
 
-static cpu_context ctx;
+extern cpu_context ctx;
 
 void fetch_data(){
     ctx.dest_is_mem = false;

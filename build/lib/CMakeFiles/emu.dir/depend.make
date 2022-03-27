@@ -24,6 +24,7 @@ lib/CMakeFiles/emu.dir/cpu_fetch.c.o: ../include/emu.h
 lib/CMakeFiles/emu.dir/cpu_fetch.c.o: ../include/instructions.h
 lib/CMakeFiles/emu.dir/cpu_fetch.c.o: ../lib/cpu_fetch.c
 
+lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/bus.h
 lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/cpu.h
 lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/emu.h

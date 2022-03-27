@@ -181,8 +181,8 @@ u8 cart_read(u16 address){
 
 
 void cart_write(u16 address, u8 value){
-
-//Since ROM only at the moment
-NO_IMPL
+    printf("cart_write(%04X)\n", address);
+    //Since ROM only at the moment
+    NO_IMPL
 
 }

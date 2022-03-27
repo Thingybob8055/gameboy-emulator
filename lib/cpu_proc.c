@@ -1,25 +1,6 @@
 #include <cpu.h>
 #include <emu.h>
-
-//This will process CPU instructions
-
-//parameter is a cpu_context pointer
-static void proc_none(cpu_context *ctx){
-    printf("[!]INVALID INSTRUCTION\n");
-    exit(-200);
-}
-
-static void proc_nop(cpu_context *ctx){
-    //does nothing
-}
-
-static void proc_di(cpu_context *ctx){
-    ctx->int_master_enabled = false;
-}
-
-static void proc_ld(cpu_context *ctx){
-    //TODO
-}
+#include <bus.h>
 
 void cpu_set_flags(cpu_context *ctx, char z, char n, char h, char c){
     //sometimes we don't want to modify a flag, this will be set to -1
@@ -39,6 +20,50 @@ void cpu_set_flags(cpu_context *ctx, char z, char n, char h, char c){
         BIT_SET(ctx->regs.f, 4, c);
     }
 
+}
+
+//This will process CPU instructions
+
+//parameter is a cpu_context pointer
+static void proc_none(cpu_context *ctx){
+    printf("[!]INVALID INSTRUCTION\n");
+    exit(-200);
+}
+
+static void proc_nop(cpu_context *ctx){
+    //does nothing
+}
+
+static void proc_di(cpu_context *ctx){
+    ctx->int_master_enabled = false;
+}
+
+static void proc_ld(cpu_context *ctx){
+    
+    if (ctx->dest_is_mem) { //if destination is memory, LD (BC) A for example
+        
+        if (ctx->curr_inst->reg_2 >= RT_AF) {  //if 16 bit value from reg_type
+            emu_cycles(1);
+            bus_write16(ctx->mem_dest, ctx->fetch_data); //16 bit write to the memory destination with value of fetched data
+        }
+        else {
+            bus_write(ctx->mem_dest, ctx->fetch_data);
+        }
+
+        return;
+    }
+
+    if (ctx->curr_inst->mode == AM_HL_SPR) {
+        u8 hflag = (cpu_read_reg(ctx->curr_inst->reg_2) & 0xF) + (ctx->fetch_data & 0xF) > 0x10; //hflag
+        u8 cflag = (cpu_read_reg(ctx->curr_inst->reg_2) & 0xFF) + (ctx->fetch_data & 0xFF) > 0x100; //carry flag
+
+        cpu_set_flags(ctx, 0, 0, hflag, cflag);
+        cpu_set_reg(ctx->curr_inst->reg_1, cpu_read_reg(ctx->curr_inst->reg_2) + (char)ctx->fetch_data); //casting char as its unsigned
+
+        return;
+    }
+
+    cpu_set_reg(ctx->curr_inst->reg_1, ctx->fetch_data);
 }
 
 static void proc_xor(cpu_context *ctx){

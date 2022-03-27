@@ -19,6 +19,8 @@ static void fetch_instruction() {
     // }
 }
 
+void fetch_data();
+
 static void execute() {
     //printf("[!]NOT YET IMPLEMENTED EXECUTION...........\n");
     //A function pointer
