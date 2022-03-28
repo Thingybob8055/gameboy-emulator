@@ -14,7 +14,7 @@
 // 0xFE00 - 0xFE9F : Object Attribute Memory
 // 0xFEA0 - 0xFEFF : Reserved - Unusable
 // 0xFF00 - 0xFF7F : I/O Registers
-// 0xFF80 - 0xFFFE : Zero Page
+// 0xFF80 - 0xFFFE : Zero Page (HRAM)
 
 //cart header is contained in the first ROM bank.
 
@@ -26,7 +26,46 @@ u8 bus_read(u16 address){
         //ROM data
         return cart_read(address); // return the cart read at that address
     }
-    printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
+    else if (address < 0xA000) { //char/map data
+        //TODO: Done alongside PPU...
+        printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
+        NO_IMPL
+    }
+    else if (address < 0xC000) {
+        //Cartridge RAM
+        return cart_read(address);
+    }
+    else if (address < 0xE000) {
+        //Working RAM (WRAM)
+        return wram_read(address);
+    }
+    else if (address < 0xFE00) {
+        //reserved echo RAM, this is not needed.
+        return 0;
+    }
+    else if (address < 0xFEA0) {
+        //Object Attribute Memory
+        //TODO: this will be started later as its PPU dependant...
+        printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
+        NO_IMPL
+    }
+    else if (address < 0xFF00) {
+        //reserved and unusable
+        return 0;
+    }
+    else if (address < 0xFF80) {
+        //IO registers
+        //TODO: implement controllers etc
+        printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
+        NO_IMPL
+    }
+    else if (address == 0xFFFF) {
+        ////TODO: CPU ENABLE REGISTER (CPU Interrupt enable regiister)
+        printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
+        NO_IMPL
+    }
+    
+    hram_read(address);
     //NO_IMPL
 
 }
@@ -34,7 +73,17 @@ u8 bus_read(u16 address){
 //May seem strange to write to ROM, but it gives special instructions that get run when trying to doing so
 void bus_write(u16 address, u8 value){
     if(address < 0x8000){
-        return cart_write(address, value);
+        cart_write(address, value);
+    }
+    else if (address < 0xA000) {
+        // Char/Map data
+        //TODO:
+        printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
+        NO_IMPL
+    }
+    else if (address < 0xC000) {
+        //EXT RAM or CART RAM
+        cart_write(address, value);
     }
     printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
     //NO_IMPL
