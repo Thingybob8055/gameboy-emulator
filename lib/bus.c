@@ -77,13 +77,17 @@ void bus_write(u16 address, u8 value){
     }
     else if (address < 0xA000) {
         // Char/Map data
-        //TODO:
+        //TODO:Done with PPU
         printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
         NO_IMPL
     }
     else if (address < 0xC000) {
         //EXT RAM or CART RAM
         cart_write(address, value);
+    }
+    else if (address < 0xE000) {
+        //WRAM region
+        wram_write(address, value);
     }
     printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
     //NO_IMPL
