@@ -89,6 +89,32 @@ void bus_write(u16 address, u8 value){
         //WRAM region
         wram_write(address, value);
     }
+    else if (address < 0xFE00) {
+        //echo ram (reserved)
+    }
+    else if (address < 0xFEA0) {
+        //OAM
+        //TODO:
+        printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
+        NO_IMPL
+    }
+    else if (address < 0xFF00) {
+        //reserved and unusable
+    }
+    else if (address < 0xFF80) {
+        //IO Registers
+        //TODO:
+        printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
+        NO_IMPL
+    }
+    else if (address == 0xFFFF) {
+        ////TODO: CPU ENABLE REGISTER (CPU Interrupt enable regiister)
+        printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
+        NO_IMPL
+    }
+    else {
+        hram_write(address, value);
+    }
     printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
     //NO_IMPL
 }
