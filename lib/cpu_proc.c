@@ -66,6 +66,18 @@ static void proc_ld(cpu_context *ctx){
     cpu_set_reg(ctx->curr_inst->reg_1, ctx->fetch_data);
 }
 
+static void proc_ldh(cpu_context *ctx) {
+    if (ctx->curr_inst->reg_1 == RT_A) {
+        cpu_set_reg(ctx->curr_inst->reg_1, bus_read(0xFF00 | ctx->fetch_data)); //reading from high ram (hram) here
+    } 
+    else {
+        bus_write(0xFF00 | ctx->fetch_data, ctx->regs.a); //oppossite, write to hram with the fetched data or with 0xFF00, grab from regs.a
+    }
+    
+    emu_cycles(1);
+
+}
+
 static void proc_xor(cpu_context *ctx){
     ctx->regs.a ^= ctx->fetch_data & 0xFF; //we only care about the lower byte of the 16 bit data for register A, and hence we do &0xFF
 
@@ -107,6 +119,7 @@ IN_PROC processors[] = {
     [IN_NONE] = proc_none,
     [IN_NOP] = proc_nop,
     [IN_LD] = proc_ld,
+    [IN_LDH] = proc_ldh,
     [IN_JP] = proc_jp,
     [IN_DI] = proc_di,
     [IN_XOR] = proc_xor

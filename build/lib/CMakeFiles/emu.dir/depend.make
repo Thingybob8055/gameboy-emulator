@@ -4,6 +4,8 @@
 lib/CMakeFiles/emu.dir/bus.c.o: ../include/bus.h
 lib/CMakeFiles/emu.dir/bus.c.o: ../include/cart.h
 lib/CMakeFiles/emu.dir/bus.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/bus.c.o: ../include/cpu.h
+lib/CMakeFiles/emu.dir/bus.c.o: ../include/instructions.h
 lib/CMakeFiles/emu.dir/bus.c.o: ../include/ram.h
 lib/CMakeFiles/emu.dir/bus.c.o: ../lib/bus.c
 

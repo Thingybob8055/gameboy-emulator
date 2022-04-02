@@ -5,6 +5,8 @@ lib/CMakeFiles/emu.dir/bus.c.o
  ../include/bus.h
  ../include/cart.h
  ../include/common.h
+ ../include/cpu.h
+ ../include/instructions.h
  ../include/ram.h
  /home/akshay/projects/gbemu/code/lib/bus.c
 lib/CMakeFiles/emu.dir/cart.c.o

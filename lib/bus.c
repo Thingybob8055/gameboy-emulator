@@ -1,6 +1,7 @@
 #include <bus.h>
 #include <cart.h>
 #include <ram.h>
+#include <cpu.h>
 
 // Memory Map from GB Pandocs:
 // 0x0000 - 0x3FFF : ROM Bank 0 (16KiB), From cartridge, usually a fixed bank
@@ -61,9 +62,10 @@ u8 bus_read(u16 address){
         NO_IMPL
     }
     else if (address == 0xFFFF) {
-        //TODO: CPU ENABLE REGISTER (CPU Interrupt enable regiister)
-        printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
-        NO_IMPL
+        //CPU ENABLE REGISTER (CPU Interrupt enable regiister)
+        // printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
+        // NO_IMPL
+        return cpu_get_ie_register();
     }
     
     hram_read(address);
@@ -106,12 +108,13 @@ void bus_write(u16 address, u8 value){
         //IO Registers
         //TODO:
         printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
-        NO_IMPL
+        //NO_IMPL
     }
     else if (address == 0xFFFF) {
-        ////TODO: CPU ENABLE REGISTER (CPU Interrupt enable regiister)
-        printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
-        NO_IMPL
+        //CPU ENABLE REGISTER (CPU Interrupt enable regiister)
+        // printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
+        // NO_IMPL
+        cpu_set_ie_register(value);
     }
     else {
         hram_write(address, value);
