@@ -4,6 +4,7 @@
 lib/CMakeFiles/emu.dir/bus.c.o: ../include/bus.h
 lib/CMakeFiles/emu.dir/bus.c.o: ../include/cart.h
 lib/CMakeFiles/emu.dir/bus.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/bus.c.o: ../include/ram.h
 lib/CMakeFiles/emu.dir/bus.c.o: ../lib/bus.c
 
 lib/CMakeFiles/emu.dir/cart.c.o: ../include/cart.h
@@ -51,6 +52,10 @@ lib/CMakeFiles/emu.dir/instructions.c.o: ../lib/instructions.c
 lib/CMakeFiles/emu.dir/ppu.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/ppu.c.o: ../include/ppu.h
 lib/CMakeFiles/emu.dir/ppu.c.o: ../lib/ppu.c
+
+lib/CMakeFiles/emu.dir/ram.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/ram.c.o: ../include/ram.h
+lib/CMakeFiles/emu.dir/ram.c.o: ../lib/ram.c
 
 lib/CMakeFiles/emu.dir/timer.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/timer.c.o: ../include/timer.h

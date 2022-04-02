@@ -5,6 +5,7 @@ lib/CMakeFiles/emu.dir/bus.c.o
  ../include/bus.h
  ../include/cart.h
  ../include/common.h
+ ../include/ram.h
  /home/akshay/projects/gbemu/code/lib/bus.c
 lib/CMakeFiles/emu.dir/cart.c.o
  ../include/cart.h
@@ -52,6 +53,10 @@ lib/CMakeFiles/emu.dir/ppu.c.o
  ../include/common.h
  ../include/ppu.h
  /home/akshay/projects/gbemu/code/lib/ppu.c
+lib/CMakeFiles/emu.dir/ram.c.o
+ ../include/common.h
+ ../include/ram.h
+ /home/akshay/projects/gbemu/code/lib/ram.c
 lib/CMakeFiles/emu.dir/timer.c.o
  ../include/common.h
  ../include/timer.h

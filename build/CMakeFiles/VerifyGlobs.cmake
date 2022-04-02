@@ -11,6 +11,7 @@ set(OLD_GLOB
   "/home/akshay/projects/gbemu/code/include/emu.h"
   "/home/akshay/projects/gbemu/code/include/instructions.h"
   "/home/akshay/projects/gbemu/code/include/ppu.h"
+  "/home/akshay/projects/gbemu/code/include/ram.h"
   "/home/akshay/projects/gbemu/code/include/timer.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
@@ -30,6 +31,7 @@ set(OLD_GLOB
   "/home/akshay/projects/gbemu/code/lib/emu.c"
   "/home/akshay/projects/gbemu/code/lib/instructions.c"
   "/home/akshay/projects/gbemu/code/lib/ppu.c"
+  "/home/akshay/projects/gbemu/code/lib/ram.c"
   "/home/akshay/projects/gbemu/code/lib/timer.c"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")

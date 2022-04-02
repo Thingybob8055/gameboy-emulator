@@ -10,6 +10,10 @@
 common.h
 -
 
+../include/cart.h
+common.h
+-
+
 ../include/common.h
 stdint.h
 -
@@ -20,25 +24,15 @@ stdio.h
 stdlib.h
 -
 
-../include/cpu.h
-common.h
--
-instructions.h
--
-
-../include/emu.h
+../include/ram.h
 common.h
 -
 
-../include/instructions.h
-common.h
--
-
-/home/akshay/projects/gbemu/code/lib/cpu_proc.c
-cpu.h
--
-emu.h
--
+/home/akshay/projects/gbemu/code/lib/bus.c
 bus.h
+-
+cart.h
+-
+ram.h
 -
 
