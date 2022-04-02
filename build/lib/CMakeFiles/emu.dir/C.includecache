@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/bus.h
-common.h
--
-
 ../include/cart.h
 common.h
 -
@@ -38,48 +34,6 @@ common.h
 common.h
 -
 
-../include/ram.h
-common.h
--
-
-/home/akshay/projects/gbemu/code/lib/bus.c
-bus.h
--
-cart.h
--
-ram.h
--
-cpu.h
--
-
-/home/akshay/projects/gbemu/code/lib/cpu.c
-cpu.h
--
-bus.h
--
-emu.h
--
-
-/home/akshay/projects/gbemu/code/lib/cpu_fetch.c
-cpu.h
--
-bus.h
--
-emu.h
--
-
-/home/akshay/projects/gbemu/code/lib/cpu_proc.c
-cpu.h
--
-emu.h
--
-bus.h
--
-
-/home/akshay/projects/gbemu/code/lib/cpu_util.c
-cpu.h
--
-
 /home/akshay/projects/gbemu/code/lib/emu.c
 stdio.h
 -
@@ -92,11 +46,5 @@ cpu.h
 SDL2/SDL.h
 -
 SDL2/SDL_ttf.h
--
-
-/home/akshay/projects/gbemu/code/lib/instructions.c
-instructions.h
--
-cpu.h
 -
 
