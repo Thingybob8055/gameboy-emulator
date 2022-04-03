@@ -33,6 +33,7 @@ lib/CMakeFiles/emu.dir/cpu_proc.c.o
  ../include/cpu.h
  ../include/emu.h
  ../include/instructions.h
+ ../include/stack.h
  /home/akshay/projects/gbemu/code/lib/cpu_proc.c
 lib/CMakeFiles/emu.dir/cpu_util.c.o
  ../include/common.h
@@ -59,6 +60,13 @@ lib/CMakeFiles/emu.dir/ram.c.o
  ../include/common.h
  ../include/ram.h
  /home/akshay/projects/gbemu/code/lib/ram.c
+lib/CMakeFiles/emu.dir/stack.c.o
+ ../include/bus.h
+ ../include/common.h
+ ../include/cpu.h
+ ../include/instructions.h
+ ../include/stack.h
+ /home/akshay/projects/gbemu/code/lib/stack.c
 lib/CMakeFiles/emu.dir/timer.c.o
  ../include/common.h
  ../include/timer.h

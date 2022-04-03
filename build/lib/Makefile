@@ -453,6 +453,33 @@ ram.c.s:
 	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/ram.c.s
 .PHONY : ram.c.s
 
+stack.o: stack.c.o
+
+.PHONY : stack.o
+
+# target to build an object file
+stack.c.o:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/stack.c.o
+.PHONY : stack.c.o
+
+stack.i: stack.c.i
+
+.PHONY : stack.i
+
+# target to preprocess a source file
+stack.c.i:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/stack.c.i
+.PHONY : stack.c.i
+
+stack.s: stack.c.s
+
+.PHONY : stack.s
+
+# target to generate assembly for a file
+stack.c.s:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/stack.c.s
+.PHONY : stack.c.s
+
 timer.o: timer.c.o
 
 .PHONY : timer.o
@@ -524,6 +551,9 @@ help:
 	@echo "... ram.o"
 	@echo "... ram.i"
 	@echo "... ram.s"
+	@echo "... stack.o"
+	@echo "... stack.i"
+	@echo "... stack.s"
 	@echo "... timer.o"
 	@echo "... timer.i"
 	@echo "... timer.s"

@@ -1,6 +1,7 @@
 #include <cpu.h>
 #include <emu.h>
 #include <bus.h>
+#include <stack.h>
 
 void cpu_set_flags(cpu_context *ctx, char z, char n, char h, char c){
     //sometimes we don't want to modify a flag, this will be set to -1
@@ -103,13 +104,71 @@ static bool check_cond(cpu_context *ctx){
 
 }
 
-static void proc_jp(cpu_context *ctx){
+
+//a jumping function, takes the cpu context, 16 bit address and a boolean flag wether we need to push the program counter.
+static void goto_addr(cpu_context *ctx, u16 addr, bool push_programcounter) {
     if (check_cond(ctx)) {
-        //if check passes, we set the program counter to value of fetctched data
+        if (push_programcounter) {
+            emu_cycles(2); //2 because its 16 bit address
+            stack_push16(ctx->regs.program_counter);
+        }
+
         ctx->regs.program_counter = ctx->fetch_data;
-        emu_cycles(1); //doing a jump requires CPU cycles
-        //we need to synchronise the PPU and timer
+        emu_cycles(1); 
     }
+}
+
+static void proc_jp(cpu_context *ctx){
+
+    goto_addr(ctx, ctx->fetch_data, false); //false as jp instr does not push the program counter
+    // if (check_cond(ctx)) {
+    //     //if check passes, we set the program counter to value of fetctched data
+    //     ctx->regs.program_counter = ctx->fetch_data;
+    //     emu_cycles(1); //doing a jump requires CPU cycles
+    //     //we need to synchronise the PPU and timer
+    // }
+}
+
+//jump relative instruction
+static void proc_jr(cpu_context *ctx) {
+    char rel = (char)(ctx->fetch_data & 0xFF); //casted char as value can be negative, and we might want to move back a few spaces.
+    u16 new_addr = ctx->regs.program_counter + rel; //program counter can go forwards or backwards.
+    goto_addr(ctx, new_addr, false);
+}
+
+static void proc_call(cpu_context *ctx) {
+    goto_addr(ctx, ctx->fetch_data, true); //true as CALL instr does pushes the program counter
+}
+
+//POP and PUSH are normally only for 16 bit values
+static void proc_pop(cpu_context *ctx) {
+    u16 lo = stack_pop();
+    emu_cycles(1);
+    u16 hi = stack_pop();
+    emu_cycles(1);
+
+    u16 n = (hi << 8) | lo;
+    cpu_set_reg(ctx->curr_inst->reg_1, n); //set the value of the related register
+
+    //a little differrent behavoir is register is AF
+    if (ctx->curr_inst->reg_1 == RT_AF) {
+        cpu_set_reg(ctx->curr_inst->reg_1, n & 0xFFF0); //only grab bottom 3 nibbles (one byte + half byte)
+    }
+
+}
+
+//pretty much the oppossite of POP
+static void proc_push(cpu_context *ctx) {
+    u16 hi = (cpu_read_reg(ctx->curr_inst->reg_1) >> 8) & 0xFF;
+    emu_cycles(1);
+    stack_push(hi);
+
+    u16 lo = (cpu_read_reg(ctx->curr_inst->reg_2)) & 0xFF;
+    emu_cycles(1);
+    stack_push(lo);
+
+    emu_cycles(1);//emu cycles
+
 }
 
 // array of function pointers that will process instructions
@@ -121,6 +180,10 @@ IN_PROC processors[] = {
     [IN_LD] = proc_ld,
     [IN_LDH] = proc_ldh,
     [IN_JP] = proc_jp,
+    [IN_POP] = proc_pop,
+    [IN_PUSH] = proc_push,
+    [IN_JR] = proc_jr,
+    [IN_CALL] = proc_call,
     [IN_DI] = proc_di,
     [IN_XOR] = proc_xor
 };

@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/akshay/projects/gbemu/code/lib/instructions.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/instructions.c.o"
   "/home/akshay/projects/gbemu/code/lib/ppu.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/ppu.c.o"
   "/home/akshay/projects/gbemu/code/lib/ram.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/ram.c.o"
+  "/home/akshay/projects/gbemu/code/lib/stack.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/stack.c.o"
   "/home/akshay/projects/gbemu/code/lib/timer.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/timer.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

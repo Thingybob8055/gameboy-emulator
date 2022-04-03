@@ -32,6 +32,7 @@ lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/cpu.h
 lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/emu.h
 lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/instructions.h
+lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../include/stack.h
 lib/CMakeFiles/emu.dir/cpu_proc.c.o: ../lib/cpu_proc.c
 
 lib/CMakeFiles/emu.dir/cpu_util.c.o: ../include/common.h
@@ -58,6 +59,13 @@ lib/CMakeFiles/emu.dir/ppu.c.o: ../lib/ppu.c
 lib/CMakeFiles/emu.dir/ram.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/ram.c.o: ../include/ram.h
 lib/CMakeFiles/emu.dir/ram.c.o: ../lib/ram.c
+
+lib/CMakeFiles/emu.dir/stack.c.o: ../include/bus.h
+lib/CMakeFiles/emu.dir/stack.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/stack.c.o: ../include/cpu.h
+lib/CMakeFiles/emu.dir/stack.c.o: ../include/instructions.h
+lib/CMakeFiles/emu.dir/stack.c.o: ../include/stack.h
+lib/CMakeFiles/emu.dir/stack.c.o: ../lib/stack.c
 
 lib/CMakeFiles/emu.dir/timer.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/timer.c.o: ../include/timer.h
