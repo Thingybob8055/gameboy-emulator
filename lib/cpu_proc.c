@@ -113,7 +113,7 @@ static void goto_addr(cpu_context *ctx, u16 addr, bool push_programcounter) {
             stack_push16(ctx->regs.program_counter);
         }
 
-        ctx->regs.program_counter = ctx->fetch_data;
+        ctx->regs.program_counter = addr;
         emu_cycles(1); 
     }
 }
@@ -140,6 +140,36 @@ static void proc_call(cpu_context *ctx) {
     goto_addr(ctx, ctx->fetch_data, true); //true as CALL instr does pushes the program counter
 }
 
+//This instruction jumps to specific location set by the instruction, and it does also push the program counter
+static void proc_rst(cpu_context *ctx) {
+    goto_addr(ctx, ctx->curr_inst->param, true); //true as CALL instr does pushes the program counter
+}
+
+//returns from the call (basically reverse of call)
+static void proc_ret(cpu_context *ctx){
+    if (ctx->curr_inst->cond != CT_NONE) {
+        emu_cycles(1); //add an emu cycle
+    }
+
+    //if condition is met, we need to do the return call
+    if (check_cond(ctx)) {
+        u16 lo = stack_pop(); //pop first value of the stack
+        emu_cycles(1);
+        u16 hi = stack_pop();
+        emu_cycles(1); //instead of using stack_pop16(), we used 2 8 bit too keep it cycle accurate
+
+        u16 n = (hi <<8) | lo;
+        ctx->regs.program_counter = n;
+        emu_cycles(1);
+    }
+}
+
+//similar to proc_ret, but this is returning from an interrupt
+static void proc_reti(cpu_context *ctx) {
+    ctx->int_master_enabled = true;
+    proc_ret(ctx);
+}
+
 //POP and PUSH are normally only for 16 bit values
 static void proc_pop(cpu_context *ctx) {
     u16 lo = stack_pop();
@@ -163,7 +193,7 @@ static void proc_push(cpu_context *ctx) {
     emu_cycles(1);
     stack_push(hi);
 
-    u16 lo = (cpu_read_reg(ctx->curr_inst->reg_2)) & 0xFF;
+    u16 lo = (cpu_read_reg(ctx->curr_inst->reg_1)) & 0xFF;
     emu_cycles(1);
     stack_push(lo);
 
@@ -184,6 +214,9 @@ IN_PROC processors[] = {
     [IN_PUSH] = proc_push,
     [IN_JR] = proc_jr,
     [IN_CALL] = proc_call,
+    [IN_RET] = proc_ret,
+    [IN_RST] = proc_rst,
+    [IN_RETI] = proc_reti,
     [IN_DI] = proc_di,
     [IN_XOR] = proc_xor
 };

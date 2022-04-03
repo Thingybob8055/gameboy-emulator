@@ -106,7 +106,7 @@ typedef struct {
     reg_type reg_1; //possible registers 1 and 2
     reg_type reg_2;
     cond_type cond; //conditional type
-    u8 param; //parameter for certain cases, for special CB instructions
+    u8 param; //parameter for certain cases, for special CB instructions (rst instructions for example)
 } instruction;
 
 instruction *instruction_by_opcode(u8 opcode);
