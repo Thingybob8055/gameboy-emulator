@@ -68,7 +68,7 @@ u8 bus_read(u16 address){
         return cpu_get_ie_register();
     }
     
-    hram_read(address);
+    return hram_read(address);
     //NO_IMPL
 
 }

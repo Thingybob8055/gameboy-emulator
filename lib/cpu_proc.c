@@ -55,12 +55,14 @@ static void proc_ld(cpu_context *ctx){
             bus_write(ctx->mem_dest, ctx->fetch_data);
         }
 
+        emu_cycles(1);
+
         return;
     }
 
     if (ctx->curr_inst->mode == AM_HL_SPR) {
-        u8 hflag = (cpu_read_reg(ctx->curr_inst->reg_2) & 0xF) + (ctx->fetch_data & 0xF) > 0x10; //hflag
-        u8 cflag = (cpu_read_reg(ctx->curr_inst->reg_2) & 0xFF) + (ctx->fetch_data & 0xFF) > 0x100; //carry flag
+        u8 hflag = (cpu_read_reg(ctx->curr_inst->reg_2) & 0xF) + (ctx->fetch_data & 0xF) >= 0x10; //hflag
+        u8 cflag = (cpu_read_reg(ctx->curr_inst->reg_2) & 0xFF) + (ctx->fetch_data & 0xFF) >= 0x100; //carry flag
 
         cpu_set_flags(ctx, 0, 0, hflag, cflag);
         cpu_set_reg(ctx->curr_inst->reg_1, cpu_read_reg(ctx->curr_inst->reg_2) + (char)ctx->fetch_data); //casting char as its unsigned
@@ -76,7 +78,7 @@ static void proc_ldh(cpu_context *ctx) {
         cpu_set_reg(ctx->curr_inst->reg_1, bus_read(0xFF00 | ctx->fetch_data)); //reading from high ram (hram) here
     } 
     else {
-        bus_write(0xFF00 | ctx->fetch_data, ctx->regs.a); //oppossite, write to hram with the fetched data or with 0xFF00, grab from regs.a
+        bus_write(ctx->mem_dest, ctx->regs.a); //oppossite, write to hram with the fetched data or with 0xFF00, grab from regs.a
     }
     
     emu_cycles(1);
@@ -87,7 +89,7 @@ static void proc_xor(cpu_context *ctx){
     ctx->regs.a ^= ctx->fetch_data & 0xFF; //we only care about the lower byte of the 16 bit data for register A, and hence we do &0xFF
 
     //the XOR function effects the CPU flags
-    cpu_set_flags(ctx, ctx->regs.a, 0, 0, 0);
+    cpu_set_flags(ctx, ctx->regs.a == 0, 0, 0, 0);
 }
 
 static bool check_cond(cpu_context *ctx){

@@ -42,6 +42,7 @@ bool cpu_step() {
     if(!ctx.halted){ //what happens in the cpu step when CPU is not halted.
         u16 program_counter = ctx.regs.program_counter;
         fetch_instruction();
+        emu_cycles(1);
         fetch_data();
 
         //for logging
