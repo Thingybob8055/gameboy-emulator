@@ -35,6 +35,48 @@ static void proc_nop(cpu_context *ctx){
     //does nothing
 }
 
+//a lookup table for decoding CB instructions
+reg_type rt_lookup [] = {
+    RT_B,
+    RT_C,
+    RT_D,
+    RT_E,
+    RT_H,
+    RT_L,
+    RT_HL,
+    RT_A
+};
+
+//decode the registers for CB instructions
+reg_type decode_reg(u8 reg) {
+    if (reg > 0b111) {
+        return RT_NONE; //this indicates RT_NONE
+    }
+
+    return rt_lookup[reg];
+}
+
+static void proc_and(cpu_context *ctx){
+    ctx->regs.a &= ctx->fetch_data; //simple and operation
+    cpu_set_flags(ctx, ctx->regs.a == 0, 0, 1, 0);
+}
+
+static void proc_or(cpu_context *ctx){
+    ctx->regs.a |= ctx->fetch_data & 0xFF;
+    cpu_set_flags(ctx, ctx->regs.a == 0, 0, 0, 0);
+}
+
+static void proc_xor(cpu_context *ctx){
+    ctx->regs.a ^= ctx->fetch_data & 0xFF;
+    cpu_set_flags(ctx, ctx->regs.a == 0, 0, 0, 0);
+}
+
+static void proc_cp(cpu_context *ctx){
+    int n = (int)ctx->regs.a - (int)ctx->fetch_data;
+    //this instruction isn't changing any registers, its only changing the flags.
+    cpu_set_flags(ctx, n == 0, 1, ((int)ctx->regs.a & 0x0F) - ((int)ctx->fetch_data & 0x0F) < 0, n < 0);
+}
+
 static void proc_di(cpu_context *ctx){
     ctx->int_master_enabled = false;
 }
