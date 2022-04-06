@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../include/bus.h
+common.h
+-
+
 ../include/common.h
 stdint.h
 -
@@ -16,11 +20,19 @@ stdio.h
 stdlib.h
 -
 
-../include/ram.h
+../include/cpu.h
+common.h
+-
+instructions.h
+-
+
+../include/instructions.h
 common.h
 -
 
-/home/akshay/projects/gbemu/code/lib/ram.c
-ram.h
+/home/akshay/projects/gbemu/code/lib/cpu_util.c
+cpu.h
+-
+bus.h
 -
 

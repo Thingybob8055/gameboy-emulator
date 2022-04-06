@@ -56,6 +56,124 @@ reg_type decode_reg(u8 reg) {
     return rt_lookup[reg];
 }
 
+//see CB table, it has an instruction map of it's own, but they have a pattern that can be deocded
+static void proc_cb(cpu_context *ctx){
+    u8 op = ctx->fetch_data;
+    reg_type reg = decode_reg(op & 0b111); //by masking the last 3 bits, we can decode the register type (see CB table first row)
+    u8 bit = (op >> 3) & 0b111; //to decode bits, for example RESET 1, RESET 2 etc, SET 1, SET 2 etc, BIT 1, BIT 2 etc etc instructions
+    u8 bit_op = (op >> 6) & 0b11; //finds which operation you are doing, RRC, RC, RLC etc
+    u8 reg_val = cpu_read_reg8(reg);
+
+    emu_cycles(1);
+
+    if(reg == RT_HL) {
+        emu_cycles(2); //a special case
+    }
+    //switching based on bit operation
+    switch(bit_op) {
+        case 1:
+            //BIT
+            cpu_set_flags(ctx, !(reg_val & (1 << bit)), 0, 1, -1);
+            return;
+
+        case 2:
+            //RST
+            reg_val &= ~(1 << bit);
+            cpu_set_reg8(reg, reg_val);
+            return;
+
+        case 3:
+            //SET
+            reg_val |= (1 << bit);
+            cpu_set_reg8(reg, reg_val);
+            return;
+    }
+
+    //if not any of the above, the program moves on to here
+    bool flagC = CPU_FLAG_C; //grab C flag
+    
+    //switch the bit that is being worked on
+     switch(bit) {
+        case 0: {
+            //RLC
+            bool setC = false;
+            u8 result = (reg_val << 1) & 0xFF;
+
+            if ((reg_val & (1 << 7)) != 0) {
+                result |= 1;
+                setC = true;
+            }
+
+            cpu_set_reg8(reg, result);
+            cpu_set_flags(ctx, result == 0, false, false, setC);
+        } return;
+
+        case 1: {
+            //RRC
+            u8 old = reg_val;
+            reg_val >>= 1;
+            reg_val |= (old << 7);
+
+            cpu_set_reg8(reg, reg_val);
+            cpu_set_flags(ctx, !reg_val, false, false, old & 1);
+        } return;
+
+        case 2: {
+            //RL
+            u8 old = reg_val;
+            reg_val <<= 1;
+            reg_val |= flagC;
+
+            cpu_set_reg8(reg, reg_val);
+            cpu_set_flags(ctx, !reg_val, false, false, !!(old & 0x80));
+        } return;
+
+        case 3: {
+            //RR
+            u8 old = reg_val;
+            reg_val >>= 1;
+
+            reg_val |= (flagC << 7);
+
+            cpu_set_reg8(reg, reg_val);
+            cpu_set_flags(ctx, !reg_val, false, false, old & 1);
+        } return;
+
+        case 4: {
+            //SLA
+            u8 old = reg_val;
+            reg_val <<= 1;
+
+            cpu_set_reg8(reg, reg_val);
+            cpu_set_flags(ctx, !reg_val, false, false, !!(old & 0x80));
+        } return;
+
+        case 5: {
+            //SRA
+            u8 u = (int8_t)reg_val >> 1;
+            cpu_set_reg8(reg, u);
+            cpu_set_flags(ctx, !u, 0, 0, reg_val & 1);
+        } return;
+
+        case 6: {
+            //SWAP
+            reg_val = ((reg_val & 0xF0) >> 4) | ((reg_val & 0xF) << 4);
+            cpu_set_reg8(reg, reg_val);
+            cpu_set_flags(ctx, reg_val == 0, false, false, false);
+        } return;
+
+        case 7: {
+            //SRL
+            u8 u = reg_val >> 1;
+            cpu_set_reg8(reg, u);
+            cpu_set_flags(ctx, !u, 0, 0, reg_val & 1);
+        } return;
+    }
+
+    fprintf(stderr, "[!]ERROR: INVALID CB: %02X", op);
+    NO_IMPL
+}
+
 static void proc_and(cpu_context *ctx){
     ctx->regs.a &= ctx->fetch_data; //simple and operation
     cpu_set_flags(ctx, ctx->regs.a == 0, 0, 1, 0);
@@ -67,8 +185,8 @@ static void proc_or(cpu_context *ctx){
 }
 
 static void proc_xor(cpu_context *ctx){
-    ctx->regs.a ^= ctx->fetch_data & 0xFF;
-    cpu_set_flags(ctx, ctx->regs.a == 0, 0, 0, 0);
+    ctx->regs.a ^= ctx->fetch_data & 0xFF; //we only care about the lower byte of the 16 bit data for register A, and hence we do &0xFF
+    cpu_set_flags(ctx, ctx->regs.a == 0, 0, 0, 0); //the XOR function effects the CPU flags
 }
 
 static void proc_cp(cpu_context *ctx){
@@ -125,13 +243,6 @@ static void proc_ldh(cpu_context *ctx) {
     
     emu_cycles(1);
 
-}
-
-static void proc_xor(cpu_context *ctx){
-    ctx->regs.a ^= ctx->fetch_data & 0xFF; //we only care about the lower byte of the 16 bit data for register A, and hence we do &0xFF
-
-    //the XOR function effects the CPU flags
-    cpu_set_flags(ctx, ctx->regs.a == 0, 0, 0, 0);
 }
 
 static bool check_cond(cpu_context *ctx){
@@ -397,8 +508,12 @@ IN_PROC processors[] = {
     [IN_ADC] = proc_adc,
     [IN_SUB] = proc_sub,
     [IN_SBC] = proc_sbc,
+    [IN_AND] = proc_and,
+    [IN_XOR] = proc_xor,
+    [IN_OR] = proc_or,
+    [IN_CP] = proc_cp,
+    [IN_CB] = proc_cb,
     [IN_DI] = proc_di,
-    [IN_XOR] = proc_xor
 };
 
 IN_PROC inst_get_processor(in_type type){
