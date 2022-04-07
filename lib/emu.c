@@ -66,7 +66,7 @@ int emu_run(int argc, char **argv) {
     pthread_t t1;
 
     if (pthread_create(&t1, NULL, cpu_run, NULL)) {
-        fprintf(stderr, "FAILED TO START MAIN CPU THREAD!\n");
+        fprintf(stderr, "[!]FAILED TO START MAIN CPU THREAD!\n");
         return -1;
     }
 

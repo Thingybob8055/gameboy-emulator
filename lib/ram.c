@@ -12,7 +12,7 @@ u8 wram_read(u16 address) {
 
     //not needed error checking tbh
     if (address >= 0x2000) {
-        printf("INVALID WRAM ADDR %08X\n", address + 0xC000);
+        printf("[!]INVALID WRAM ADDRESS %08X\n", address + 0xC000);
         exit(-1);
     }
 

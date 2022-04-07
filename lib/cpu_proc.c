@@ -30,8 +30,8 @@ void cpu_set_flags(cpu_context *ctx, int8_t z, int8_t n, int8_t h, int8_t c) {
 
 //parameter is a cpu_context pointer
 static void proc_none(cpu_context *ctx) {
-    printf("INVALID INSTRUCTION!\n");
-    exit(-7);
+    printf("[!]INVALID INSTRUCTION!\n");
+    exit(-100);
 }
 
 static void proc_nop(cpu_context *ctx) {

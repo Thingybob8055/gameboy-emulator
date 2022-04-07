@@ -71,7 +71,7 @@ u8 cpu_read_reg8(reg_type rt) {
             return bus_read(cpu_read_reg(RT_HL)); //memory address read at the address of HL
         }
         default:
-            printf("**ERR INVALID REG8: %d\n", rt);
+            printf("[!]ERR INVALID REG8: %d\n", rt);
             NO_IMPL
     }
 }
@@ -88,7 +88,7 @@ void cpu_set_reg8(reg_type rt, u8 val) {
         case RT_L: ctx.regs.l = val & 0xFF; break;
         case RT_HL: bus_write(cpu_read_reg(RT_HL), val); break;
         default:
-            printf("**ERR INVALID REG8: %d\n", rt); //memory address write at the address of HL
+            printf("[!]ERR INVALID REG8: %d\n", rt); //memory address write at the address of HL
             NO_IMPL
     }
 }

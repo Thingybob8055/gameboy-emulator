@@ -73,8 +73,8 @@ bool cpu_step() {
         //printf("Received Instruction: %02X   PC: %04X\n", ctx.current_opcode, program_counter);
 
         if (ctx.cur_inst == NULL) {
-            printf("Unknown Instruction! %02X\n", ctx.cur_opcode);
-            exit(-7);
+            printf("[!]Unknown Instruction! %02X\n", ctx.cur_opcode);
+            exit(-200);
         }
 
         dbg_update();

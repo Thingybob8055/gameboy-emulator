@@ -171,7 +171,7 @@ void fetch_data() {
         }
 
         default:
-            printf("Unknown Addressing Mode! %d (%02X)\n", ctx.cur_inst->mode, ctx.cur_opcode);
+            printf("[!]Unknown Addressing Mode! %d (%02X)\n", ctx.cur_inst->mode, ctx.cur_opcode);
             exit(-7);
             return;
     }
