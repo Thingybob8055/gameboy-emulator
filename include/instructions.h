@@ -4,10 +4,10 @@
 
 typedef enum {
     AM_IMP,
-    AM_R_D16, //D16 to register
-    AM_R_R,  //register to register
-    AM_MR_R, //register to memory location or register
-    AM_R, //read from register
+    AM_R_D16,
+    AM_R_R,
+    AM_MR_R,
+    AM_R,
     AM_R_D8,
     AM_R_MR,
     AM_R_HLI,
@@ -95,16 +95,16 @@ typedef enum {
     IN_RES, 
     IN_SET
 } in_type;
-
+//for situations like jump if zero flag is not set etc.
 typedef enum {
-    CT_NONE, CT_NZ, CT_Z, CT_NC, CT_C //for situations like jump if zero flag is not set etc.
+    CT_NONE, CT_NZ, CT_Z, CT_NC, CT_C
 } cond_type;
 
 typedef struct {
     in_type type; //instruction types e.g jump, decrement, add, xor etc
     addr_mode mode; //address mode for different loading types, 8 bit, 16 bit, from register to register etc
     reg_type reg_1; //possible registers 1 and 2
-    reg_type reg_2;
+    reg_type reg_2; 
     cond_type cond; //conditional type
     u8 param; //parameter for certain cases, for special CB instructions (rst instructions for example)
 } instruction;

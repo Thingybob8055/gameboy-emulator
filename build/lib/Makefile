@@ -345,6 +345,33 @@ cpu_util.c.s:
 	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/cpu_util.c.s
 .PHONY : cpu_util.c.s
 
+dbg.o: dbg.c.o
+
+.PHONY : dbg.o
+
+# target to build an object file
+dbg.c.o:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/dbg.c.o
+.PHONY : dbg.c.o
+
+dbg.i: dbg.c.i
+
+.PHONY : dbg.i
+
+# target to preprocess a source file
+dbg.c.i:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/dbg.c.i
+.PHONY : dbg.c.i
+
+dbg.s: dbg.c.s
+
+.PHONY : dbg.s
+
+# target to generate assembly for a file
+dbg.c.s:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/dbg.c.s
+.PHONY : dbg.c.s
+
 emu.o: emu.c.o
 
 .PHONY : emu.o
@@ -398,6 +425,60 @@ instructions.s: instructions.c.s
 instructions.c.s:
 	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/instructions.c.s
 .PHONY : instructions.c.s
+
+interrupts.o: interrupts.c.o
+
+.PHONY : interrupts.o
+
+# target to build an object file
+interrupts.c.o:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/interrupts.c.o
+.PHONY : interrupts.c.o
+
+interrupts.i: interrupts.c.i
+
+.PHONY : interrupts.i
+
+# target to preprocess a source file
+interrupts.c.i:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/interrupts.c.i
+.PHONY : interrupts.c.i
+
+interrupts.s: interrupts.c.s
+
+.PHONY : interrupts.s
+
+# target to generate assembly for a file
+interrupts.c.s:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/interrupts.c.s
+.PHONY : interrupts.c.s
+
+io.o: io.c.o
+
+.PHONY : io.o
+
+# target to build an object file
+io.c.o:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/io.c.o
+.PHONY : io.c.o
+
+io.i: io.c.i
+
+.PHONY : io.i
+
+# target to preprocess a source file
+io.c.i:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/io.c.i
+.PHONY : io.c.i
+
+io.s: io.c.s
+
+.PHONY : io.s
+
+# target to generate assembly for a file
+io.c.s:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/io.c.s
+.PHONY : io.c.s
 
 ppu.o: ppu.c.o
 
@@ -507,6 +588,33 @@ timer.c.s:
 	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/timer.c.s
 .PHONY : timer.c.s
 
+ui.o: ui.c.o
+
+.PHONY : ui.o
+
+# target to build an object file
+ui.c.o:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/ui.c.o
+.PHONY : ui.c.o
+
+ui.i: ui.c.i
+
+.PHONY : ui.i
+
+# target to preprocess a source file
+ui.c.i:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/ui.c.i
+.PHONY : ui.c.i
+
+ui.s: ui.c.s
+
+.PHONY : ui.s
+
+# target to generate assembly for a file
+ui.c.s:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/ui.c.s
+.PHONY : ui.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -539,12 +647,21 @@ help:
 	@echo "... cpu_util.o"
 	@echo "... cpu_util.i"
 	@echo "... cpu_util.s"
+	@echo "... dbg.o"
+	@echo "... dbg.i"
+	@echo "... dbg.s"
 	@echo "... emu.o"
 	@echo "... emu.i"
 	@echo "... emu.s"
 	@echo "... instructions.o"
 	@echo "... instructions.i"
 	@echo "... instructions.s"
+	@echo "... interrupts.o"
+	@echo "... interrupts.i"
+	@echo "... interrupts.s"
+	@echo "... io.o"
+	@echo "... io.i"
+	@echo "... io.s"
 	@echo "... ppu.o"
 	@echo "... ppu.i"
 	@echo "... ppu.s"
@@ -557,6 +674,9 @@ help:
 	@echo "... timer.o"
 	@echo "... timer.i"
 	@echo "... timer.s"
+	@echo "... ui.o"
+	@echo "... ui.i"
+	@echo "... ui.s"
 .PHONY : help
 
 

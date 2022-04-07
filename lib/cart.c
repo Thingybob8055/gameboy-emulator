@@ -172,17 +172,17 @@ bool cart_load(char *cart) {
 
 //Since ROM is into memory, we can data directly from there
 
-u8 cart_read(u16 address){
+u8 cart_read(u16 address) {
     //for now, only read only memory
     //return the value from the ROM at that address
+
     return ctx.rom_data[address];
-
 }
 
+void cart_write(u16 address, u8 value) {
+    //for now, ROM ONLY...
 
-void cart_write(u16 address, u8 value){
     printf("cart_write(%04X)\n", address);
-    //Since ROM only at the moment
     NO_IMPL
-
 }
+

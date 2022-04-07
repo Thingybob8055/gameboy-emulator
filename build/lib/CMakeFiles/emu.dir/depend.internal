@@ -7,6 +7,7 @@ lib/CMakeFiles/emu.dir/bus.c.o
  ../include/common.h
  ../include/cpu.h
  ../include/instructions.h
+ ../include/io.h
  ../include/ram.h
  /home/akshay/projects/gbemu/code/lib/bus.c
 lib/CMakeFiles/emu.dir/cart.c.o
@@ -17,8 +18,11 @@ lib/CMakeFiles/emu.dir/cpu.c.o
  ../include/bus.h
  ../include/common.h
  ../include/cpu.h
+ ../include/dbg.h
  ../include/emu.h
  ../include/instructions.h
+ ../include/interrupts.h
+ ../include/timer.h
  /home/akshay/projects/gbemu/code/lib/cpu.c
 lib/CMakeFiles/emu.dir/cpu_fetch.c.o
  ../include/bus.h
@@ -36,22 +40,49 @@ lib/CMakeFiles/emu.dir/cpu_proc.c.o
  ../include/stack.h
  /home/akshay/projects/gbemu/code/lib/cpu_proc.c
 lib/CMakeFiles/emu.dir/cpu_util.c.o
+ ../include/bus.h
  ../include/common.h
  ../include/cpu.h
  ../include/instructions.h
  /home/akshay/projects/gbemu/code/lib/cpu_util.c
+lib/CMakeFiles/emu.dir/dbg.c.o
+ ../include/bus.h
+ ../include/common.h
+ ../include/cpu.h
+ ../include/dbg.h
+ ../include/instructions.h
+ /home/akshay/projects/gbemu/code/lib/dbg.c
 lib/CMakeFiles/emu.dir/emu.c.o
  ../include/cart.h
  ../include/common.h
  ../include/cpu.h
  ../include/emu.h
  ../include/instructions.h
+ ../include/timer.h
+ ../include/ui.h
  /home/akshay/projects/gbemu/code/lib/emu.c
 lib/CMakeFiles/emu.dir/instructions.c.o
+ ../include/bus.h
  ../include/common.h
  ../include/cpu.h
  ../include/instructions.h
  /home/akshay/projects/gbemu/code/lib/instructions.c
+lib/CMakeFiles/emu.dir/interrupts.c.o
+ ../include/common.h
+ ../include/cpu.h
+ ../include/instructions.h
+ ../include/interrupts.h
+ ../include/stack.h
+ /home/akshay/projects/gbemu/code/lib/interrupts.c
+lib/CMakeFiles/emu.dir/io.c.o
+ ../include/bus.h
+ ../include/common.h
+ ../include/cpu.h
+ ../include/instructions.h
+ ../include/interrupts.h
+ ../include/io.h
+ ../include/timer.h
+ /home/akshay/projects/gbemu/code/lib/io.c
 lib/CMakeFiles/emu.dir/ppu.c.o
  ../include/common.h
  ../include/ppu.h
@@ -69,5 +100,13 @@ lib/CMakeFiles/emu.dir/stack.c.o
  /home/akshay/projects/gbemu/code/lib/stack.c
 lib/CMakeFiles/emu.dir/timer.c.o
  ../include/common.h
+ ../include/cpu.h
+ ../include/instructions.h
+ ../include/interrupts.h
  ../include/timer.h
  /home/akshay/projects/gbemu/code/lib/timer.c
+lib/CMakeFiles/emu.dir/ui.c.o
+ ../include/common.h
+ ../include/emu.h
+ ../include/ui.h
+ /home/akshay/projects/gbemu/code/lib/ui.c
