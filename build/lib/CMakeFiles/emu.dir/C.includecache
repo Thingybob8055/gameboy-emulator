@@ -52,10 +52,6 @@ cpu.h
 common.h
 -
 
-../include/ppu.h
-common.h
--
-
 ../include/ram.h
 common.h
 -
@@ -176,10 +172,6 @@ bus.h
 timer.h
 -
 interrupts.h
--
-
-/home/akshay/projects/gbemu/code/lib/ppu.c
-ppu.h
 -
 
 /home/akshay/projects/gbemu/code/lib/ram.c
