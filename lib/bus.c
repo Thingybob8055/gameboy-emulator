@@ -2,6 +2,7 @@
 #include <cart.h>
 #include <ram.h>
 #include <cpu.h>
+#include <io.h>
 
 // Memory Map from GB Pandocs:
 // 0x0000 - 0x3FFF : ROM Bank 0 (16KiB), From cartridge, usually a fixed bank
@@ -20,107 +21,102 @@
 
 //cart header is contained in the first ROM bank.
 
-//cart_read and write methods to be added to the cart codes. 
-
-//so far, only implemented ROM
-u8 bus_read(u16 address){
-    if(address < 0x8000){
-        //ROM data
-        return cart_read(address); // return the cart read at that address
-    }
-    else if (address < 0xA000) { //char/map data
-        //TODO: Done alongside PPU...
-        printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
+u8 bus_read(u16 address) {
+    if (address < 0x8000) {
+        //ROM Data
+        return cart_read(address);
+    } 
+    else if (address < 0xA000) {
+        //Char/Map Data
+        //TODO
+        printf("UNSUPPORTED bus_read(%04X)\n", address);
         NO_IMPL
-    }
+    } 
     else if (address < 0xC000) {
         //Cartridge RAM
         return cart_read(address);
-    }
+    } 
     else if (address < 0xE000) {
-        //Working RAM (WRAM)
+        //WRAM (Working RAM)
         return wram_read(address);
-    }
+    } 
     else if (address < 0xFE00) {
-        //reserved echo RAM, this is not needed.
+        //reserved echo ram..., NOT NEEDED
         return 0;
-    }
+    } 
     else if (address < 0xFEA0) {
         //Object Attribute Memory
-        //TODO: this will be started later as its PPU dependant...
-        printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
-        NO_IMPL
-    }
+        //TODO: Impemented along with the PPU
+        printf("UNSUPPORTED bus_read(%04X)\n", address);
+        //NO_IMPL
+        return 0x0;
+    } 
     else if (address < 0xFF00) {
         //reserved and unusable
         return 0;
-    }
+    } 
     else if (address < 0xFF80) {
-        //IO registers
+        //IO Registers
         //TODO: implement controllers etc
-        printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
-        NO_IMPL
-    }
+        //NO_IMPL
+        return io_read(address);
+    } 
     else if (address == 0xFFFF) {
-        //CPU ENABLE REGISTER (CPU Interrupt enable regiister)
-        // printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
-        // NO_IMPL
+        //CPU ENABLE REGISTER
+        //TODO
         return cpu_get_ie_register();
     }
-    
-    return hram_read(address);
-    //NO_IMPL
 
+    //NO_IMPL
+    return hram_read(address);
 }
 
-//May seem strange to write to ROM, but it gives special instructions that get run when trying to doing so
-void bus_write(u16 address, u8 value){
-    if(address < 0x8000){
+void bus_write(u16 address, u8 value) {
+    if (address < 0x8000) {
+        //ROM Data
         cart_write(address, value);
-    }
+    } 
     else if (address < 0xA000) {
-        // Char/Map data
-        //TODO:Done with PPU
-        printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
-        NO_IMPL
-    }
+        //Char Map Data
+        //TODO
+        printf("UNSUPPORTED bus_write(%04X)\n", address);
+        //NO_IMPL
+    } 
     else if (address < 0xC000) {
-        //EXT RAM or CART RAM
+        //EXT-RAM OR CART RAM
         cart_write(address, value);
-    }
+    } 
     else if (address < 0xE000) {
         //WRAM region
         wram_write(address, value);
-    }
+    } 
     else if (address < 0xFE00) {
-        //echo ram (reserved)
-    }
+        //reserved echo ram
+    } 
     else if (address < 0xFEA0) {
         //OAM
-        //TODO:
-        printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
-        NO_IMPL
-    }
+
+        //TODO
+        printf("UNSUPPORTED bus_write(%04X)\n", address);
+       // NO_IMPL
+    } 
     else if (address < 0xFF00) {
-        //reserved and unusable
-    }
+        //unusable reserved
+    } 
     else if (address < 0xFF80) {
-        //IO Registers
-        //TODO:
-        printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
+        //IO Registers...
+        //TODO
+        io_write(address, value);
         //NO_IMPL
-    }
+    } 
     else if (address == 0xFFFF) {
-        //CPU ENABLE REGISTER (CPU Interrupt enable regiister)
-        // printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
-        // NO_IMPL
+        //CPU SET ENABLE REGISTER
+        
         cpu_set_ie_register(value);
-    }
+    } 
     else {
         hram_write(address, value);
     }
-    //printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
-    //NO_IMPL
 }
 
 u16 bus_read16(u16 address) {

@@ -23,8 +23,8 @@ u16 cpu_read_reg(reg_type rt) {
         case RT_DE: return reverse(*((u16 *)&ctx.regs.d));
         case RT_HL: return reverse(*((u16 *)&ctx.regs.h));
 
-        case RT_PC: return ctx.regs.program_counter;
-        case RT_SP: return ctx.regs.stack_pointer;
+        case RT_PC: return ctx.regs.pc;
+        case RT_SP: return ctx.regs.sp;
         default: return 0;
     }
 }
@@ -50,8 +50,8 @@ void cpu_set_reg(reg_type rt, u16 val) {
          break;
         }
 
-        case RT_PC: ctx.regs.program_counter = val; break;
-        case RT_SP: ctx.regs.stack_pointer = val; break;
+        case RT_PC: ctx.regs.pc = val; break;
+        case RT_SP: ctx.regs.sp = val; break;
         case RT_NONE: break;
     }
 }
@@ -71,12 +71,11 @@ u8 cpu_read_reg8(reg_type rt) {
             return bus_read(cpu_read_reg(RT_HL)); //memory address read at the address of HL
         }
         default:
-            printf("[!]ERR INVALID REG8: %d\n", rt);
+            printf("**ERR INVALID REG8: %d\n", rt);
             NO_IMPL
     }
 }
 
-//8-bit version of set register
 void cpu_set_reg8(reg_type rt, u8 val) {
     switch(rt) {
         case RT_A: ctx.regs.a = val & 0xFF; break;
@@ -87,13 +86,22 @@ void cpu_set_reg8(reg_type rt, u8 val) {
         case RT_E: ctx.regs.e = val & 0xFF; break;
         case RT_H: ctx.regs.h = val & 0xFF; break;
         case RT_L: ctx.regs.l = val & 0xFF; break;
-        case RT_HL: bus_write(cpu_read_reg(RT_HL), val); break; //memory address write at the address of HL
+        case RT_HL: bus_write(cpu_read_reg(RT_HL), val); break;
         default:
-            printf("[!]ERR INVALID REG8: %d\n", rt);
+            printf("**ERR INVALID REG8: %d\n", rt); //memory address write at the address of HL
             NO_IMPL
     }
 }
 
+//simple getters and setters.....
 cpu_registers *cpu_get_regs() {
     return &ctx.regs; //returns address (function returns a pointer)
+}
+
+u8 cpu_get_int_flags() {
+    return ctx.int_flags;
+}
+
+void cpu_set_int_flags(u8 value) {
+    ctx.int_flags = value;
 }

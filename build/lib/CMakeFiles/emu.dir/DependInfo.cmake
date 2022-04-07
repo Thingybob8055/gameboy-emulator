@@ -10,12 +10,16 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/akshay/projects/gbemu/code/lib/cpu_fetch.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/cpu_fetch.c.o"
   "/home/akshay/projects/gbemu/code/lib/cpu_proc.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/cpu_proc.c.o"
   "/home/akshay/projects/gbemu/code/lib/cpu_util.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/cpu_util.c.o"
+  "/home/akshay/projects/gbemu/code/lib/dbg.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/dbg.c.o"
   "/home/akshay/projects/gbemu/code/lib/emu.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/emu.c.o"
   "/home/akshay/projects/gbemu/code/lib/instructions.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/instructions.c.o"
+  "/home/akshay/projects/gbemu/code/lib/interrupts.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/interrupts.c.o"
+  "/home/akshay/projects/gbemu/code/lib/io.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/io.c.o"
   "/home/akshay/projects/gbemu/code/lib/ppu.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/ppu.c.o"
   "/home/akshay/projects/gbemu/code/lib/ram.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/ram.c.o"
   "/home/akshay/projects/gbemu/code/lib/stack.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/stack.c.o"
   "/home/akshay/projects/gbemu/code/lib/timer.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/timer.c.o"
+  "/home/akshay/projects/gbemu/code/lib/ui.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/ui.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

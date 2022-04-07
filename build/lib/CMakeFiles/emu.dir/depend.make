@@ -6,6 +6,7 @@ lib/CMakeFiles/emu.dir/bus.c.o: ../include/cart.h
 lib/CMakeFiles/emu.dir/bus.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/bus.c.o: ../include/cpu.h
 lib/CMakeFiles/emu.dir/bus.c.o: ../include/instructions.h
+lib/CMakeFiles/emu.dir/bus.c.o: ../include/io.h
 lib/CMakeFiles/emu.dir/bus.c.o: ../include/ram.h
 lib/CMakeFiles/emu.dir/bus.c.o: ../lib/bus.c
 
@@ -16,8 +17,11 @@ lib/CMakeFiles/emu.dir/cart.c.o: ../lib/cart.c
 lib/CMakeFiles/emu.dir/cpu.c.o: ../include/bus.h
 lib/CMakeFiles/emu.dir/cpu.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/cpu.c.o: ../include/cpu.h
+lib/CMakeFiles/emu.dir/cpu.c.o: ../include/dbg.h
 lib/CMakeFiles/emu.dir/cpu.c.o: ../include/emu.h
 lib/CMakeFiles/emu.dir/cpu.c.o: ../include/instructions.h
+lib/CMakeFiles/emu.dir/cpu.c.o: ../include/interrupts.h
+lib/CMakeFiles/emu.dir/cpu.c.o: ../include/timer.h
 lib/CMakeFiles/emu.dir/cpu.c.o: ../lib/cpu.c
 
 lib/CMakeFiles/emu.dir/cpu_fetch.c.o: ../include/bus.h
@@ -41,17 +45,43 @@ lib/CMakeFiles/emu.dir/cpu_util.c.o: ../include/cpu.h
 lib/CMakeFiles/emu.dir/cpu_util.c.o: ../include/instructions.h
 lib/CMakeFiles/emu.dir/cpu_util.c.o: ../lib/cpu_util.c
 
+lib/CMakeFiles/emu.dir/dbg.c.o: ../include/bus.h
+lib/CMakeFiles/emu.dir/dbg.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/dbg.c.o: ../include/cpu.h
+lib/CMakeFiles/emu.dir/dbg.c.o: ../include/dbg.h
+lib/CMakeFiles/emu.dir/dbg.c.o: ../include/instructions.h
+lib/CMakeFiles/emu.dir/dbg.c.o: ../lib/dbg.c
+
 lib/CMakeFiles/emu.dir/emu.c.o: ../include/cart.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../include/cpu.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../include/emu.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../include/instructions.h
+lib/CMakeFiles/emu.dir/emu.c.o: ../include/timer.h
+lib/CMakeFiles/emu.dir/emu.c.o: ../include/ui.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../lib/emu.c
 
+lib/CMakeFiles/emu.dir/instructions.c.o: ../include/bus.h
 lib/CMakeFiles/emu.dir/instructions.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/instructions.c.o: ../include/cpu.h
 lib/CMakeFiles/emu.dir/instructions.c.o: ../include/instructions.h
 lib/CMakeFiles/emu.dir/instructions.c.o: ../lib/instructions.c
+
+lib/CMakeFiles/emu.dir/interrupts.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/interrupts.c.o: ../include/cpu.h
+lib/CMakeFiles/emu.dir/interrupts.c.o: ../include/instructions.h
+lib/CMakeFiles/emu.dir/interrupts.c.o: ../include/interrupts.h
+lib/CMakeFiles/emu.dir/interrupts.c.o: ../include/stack.h
+lib/CMakeFiles/emu.dir/interrupts.c.o: ../lib/interrupts.c
+
+lib/CMakeFiles/emu.dir/io.c.o: ../include/bus.h
+lib/CMakeFiles/emu.dir/io.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/io.c.o: ../include/cpu.h
+lib/CMakeFiles/emu.dir/io.c.o: ../include/instructions.h
+lib/CMakeFiles/emu.dir/io.c.o: ../include/interrupts.h
+lib/CMakeFiles/emu.dir/io.c.o: ../include/io.h
+lib/CMakeFiles/emu.dir/io.c.o: ../include/timer.h
+lib/CMakeFiles/emu.dir/io.c.o: ../lib/io.c
 
 lib/CMakeFiles/emu.dir/ppu.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/ppu.c.o: ../include/ppu.h
@@ -69,6 +99,14 @@ lib/CMakeFiles/emu.dir/stack.c.o: ../include/stack.h
 lib/CMakeFiles/emu.dir/stack.c.o: ../lib/stack.c
 
 lib/CMakeFiles/emu.dir/timer.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/timer.c.o: ../include/cpu.h
+lib/CMakeFiles/emu.dir/timer.c.o: ../include/instructions.h
+lib/CMakeFiles/emu.dir/timer.c.o: ../include/interrupts.h
 lib/CMakeFiles/emu.dir/timer.c.o: ../include/timer.h
 lib/CMakeFiles/emu.dir/timer.c.o: ../lib/timer.c
+
+lib/CMakeFiles/emu.dir/ui.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/ui.c.o: ../include/emu.h
+lib/CMakeFiles/emu.dir/ui.c.o: ../include/ui.h
+lib/CMakeFiles/emu.dir/ui.c.o: ../lib/ui.c
 
