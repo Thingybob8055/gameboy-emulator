@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/akshay/projects/gbemu/code/lib/cpu_proc.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/cpu_proc.c.o"
   "/home/akshay/projects/gbemu/code/lib/cpu_util.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/cpu_util.c.o"
   "/home/akshay/projects/gbemu/code/lib/dbg.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/dbg.c.o"
+  "/home/akshay/projects/gbemu/code/lib/dma.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/dma.c.o"
   "/home/akshay/projects/gbemu/code/lib/emu.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/emu.c.o"
   "/home/akshay/projects/gbemu/code/lib/instructions.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/instructions.c.o"
   "/home/akshay/projects/gbemu/code/lib/interrupts.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/interrupts.c.o"

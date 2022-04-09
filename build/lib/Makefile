@@ -372,6 +372,33 @@ dbg.c.s:
 	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/dbg.c.s
 .PHONY : dbg.c.s
 
+dma.o: dma.c.o
+
+.PHONY : dma.o
+
+# target to build an object file
+dma.c.o:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/dma.c.o
+.PHONY : dma.c.o
+
+dma.i: dma.c.i
+
+.PHONY : dma.i
+
+# target to preprocess a source file
+dma.c.i:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/dma.c.i
+.PHONY : dma.c.i
+
+dma.s: dma.c.s
+
+.PHONY : dma.s
+
+# target to generate assembly for a file
+dma.c.s:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/dma.c.s
+.PHONY : dma.c.s
+
 emu.o: emu.c.o
 
 .PHONY : emu.o
@@ -650,6 +677,9 @@ help:
 	@echo "... dbg.o"
 	@echo "... dbg.i"
 	@echo "... dbg.s"
+	@echo "... dma.o"
+	@echo "... dma.i"
+	@echo "... dma.s"
 	@echo "... emu.o"
 	@echo "... emu.i"
 	@echo "... emu.s"

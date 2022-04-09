@@ -4,6 +4,7 @@
 #include <cpu.h>
 #include <ui.h>
 #include <timer.h>
+#include <dma.h>
 #include <pthread.h> //only works in linux atm
 #include <unistd.h>
 
@@ -73,6 +74,7 @@ int emu_run(int argc, char **argv) {
     while(!ctx.die) {
         usleep(1000);
         ui_handle_events();
+        ui_update();
     }
 
     return 0;
@@ -80,10 +82,13 @@ int emu_run(int argc, char **argv) {
 
 void emu_cycles(int cpu_cycles) {
     //TODO: needed for cycle accuracy later on
-    int n = cpu_cycles * 4; //every cpu cycles ticks the cpu four times
+    //for each of the cpu cycles
+    for (int i=0; i<cpu_cycles; i++) {
+        for (int n=0; n<4; n++) {
+            ctx.ticks++; //tick cpu
+            timer_tick(); //tick timer
+        }
 
-    for (int i=0; i<n; i++) {
-        ctx.ticks++;
-        timer_tick();
+        dma_tick(); //outside, tick dma (every one cpu cycle)
     }
 }

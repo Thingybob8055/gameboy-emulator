@@ -6,8 +6,10 @@ lib/CMakeFiles/emu.dir/bus.c.o
  ../include/cart.h
  ../include/common.h
  ../include/cpu.h
+ ../include/dma.h
  ../include/instructions.h
  ../include/io.h
+ ../include/ppu.h
  ../include/ram.h
  /home/akshay/projects/gbemu/code/lib/bus.c
 lib/CMakeFiles/emu.dir/cart.c.o
@@ -52,10 +54,17 @@ lib/CMakeFiles/emu.dir/dbg.c.o
  ../include/dbg.h
  ../include/instructions.h
  /home/akshay/projects/gbemu/code/lib/dbg.c
+lib/CMakeFiles/emu.dir/dma.c.o
+ ../include/bus.h
+ ../include/common.h
+ ../include/dma.h
+ ../include/ppu.h
+ /home/akshay/projects/gbemu/code/lib/dma.c
 lib/CMakeFiles/emu.dir/emu.c.o
  ../include/cart.h
  ../include/common.h
  ../include/cpu.h
+ ../include/dma.h
  ../include/emu.h
  ../include/instructions.h
  ../include/timer.h
@@ -78,6 +87,7 @@ lib/CMakeFiles/emu.dir/io.c.o
  ../include/bus.h
  ../include/common.h
  ../include/cpu.h
+ ../include/dma.h
  ../include/instructions.h
  ../include/interrupts.h
  ../include/io.h
@@ -106,6 +116,7 @@ lib/CMakeFiles/emu.dir/timer.c.o
  ../include/timer.h
  /home/akshay/projects/gbemu/code/lib/timer.c
 lib/CMakeFiles/emu.dir/ui.c.o
+ ../include/bus.h
  ../include/common.h
  ../include/emu.h
  ../include/ui.h
