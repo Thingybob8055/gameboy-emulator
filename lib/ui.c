@@ -48,6 +48,8 @@ void ui_init() {
     int x, y;
     SDL_GetWindowPosition(sdlWindow, &x, &y);
     SDL_SetWindowPosition(sdlDebugWindow, x + SCREEN_WIDTH + 10, y);
+    SDL_SetWindowTitle(sdlWindow, "AkBoy Emu");
+    SDL_SetWindowTitle(sdlDebugWindow, "Debug Window");
 }
 
 void delay(u32 ms) {

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../include/cart.h
+../include/bus.h
 common.h
 -
 
@@ -20,29 +20,7 @@ stdio.h
 stdlib.h
 -
 
-../include/cpu.h
-common.h
--
-instructions.h
--
-
-../include/dma.h
-common.h
--
-
 ../include/emu.h
-common.h
--
-
-../include/instructions.h
-common.h
--
-
-../include/ppu.h
-common.h
--
-
-../include/timer.h
 common.h
 -
 
@@ -50,25 +28,15 @@ common.h
 common.h
 -
 
-/home/akshay/projects/gbemu/code/lib/emu.c
-stdio.h
+/home/akshay/projects/gbemu/code/lib/ui.c
+ui.h
 -
 emu.h
 -
-cart.h
+bus.h
 -
-cpu.h
+SDL2/SDL.h
 -
-ui.h
--
-timer.h
--
-ppu.h
--
-dma.h
--
-pthread.h
--
-unistd.h
+SDL2/SDL_ttf.h
 -
 
