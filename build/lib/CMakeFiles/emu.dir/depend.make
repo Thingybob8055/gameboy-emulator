@@ -66,6 +66,7 @@ lib/CMakeFiles/emu.dir/emu.c.o: ../include/cpu.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../include/dma.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../include/emu.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../include/instructions.h
+lib/CMakeFiles/emu.dir/emu.c.o: ../include/ppu.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../include/timer.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../include/ui.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../lib/emu.c
@@ -90,12 +91,29 @@ lib/CMakeFiles/emu.dir/io.c.o: ../include/dma.h
 lib/CMakeFiles/emu.dir/io.c.o: ../include/instructions.h
 lib/CMakeFiles/emu.dir/io.c.o: ../include/interrupts.h
 lib/CMakeFiles/emu.dir/io.c.o: ../include/io.h
+lib/CMakeFiles/emu.dir/io.c.o: ../include/lcd.h
 lib/CMakeFiles/emu.dir/io.c.o: ../include/timer.h
 lib/CMakeFiles/emu.dir/io.c.o: ../lib/io.c
 
+lib/CMakeFiles/emu.dir/lcd.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/lcd.c.o: ../include/dma.h
+lib/CMakeFiles/emu.dir/lcd.c.o: ../include/lcd.h
+lib/CMakeFiles/emu.dir/lcd.c.o: ../include/ppu.h
+lib/CMakeFiles/emu.dir/lcd.c.o: ../lib/lcd.c
+
 lib/CMakeFiles/emu.dir/ppu.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/ppu.c.o: ../include/lcd.h
 lib/CMakeFiles/emu.dir/ppu.c.o: ../include/ppu.h
+lib/CMakeFiles/emu.dir/ppu.c.o: ../include/ppu_sm.h
 lib/CMakeFiles/emu.dir/ppu.c.o: ../lib/ppu.c
+
+lib/CMakeFiles/emu.dir/ppu_sm.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/ppu_sm.c.o: ../include/cpu.h
+lib/CMakeFiles/emu.dir/ppu_sm.c.o: ../include/instructions.h
+lib/CMakeFiles/emu.dir/ppu_sm.c.o: ../include/interrupts.h
+lib/CMakeFiles/emu.dir/ppu_sm.c.o: ../include/lcd.h
+lib/CMakeFiles/emu.dir/ppu_sm.c.o: ../include/ppu.h
+lib/CMakeFiles/emu.dir/ppu_sm.c.o: ../lib/ppu_sm.c
 
 lib/CMakeFiles/emu.dir/ram.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/ram.c.o: ../include/ram.h

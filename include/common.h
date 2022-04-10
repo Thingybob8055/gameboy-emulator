@@ -18,6 +18,7 @@ typedef uint64_t u64;
 #define BETWEEN(a, b, c) ((a >= b) && (a <= c))
 
 void delay(u32 ms);
+u32 get_delay();
 
 #define NO_IMPL { fprintf(stderr, "NOT YET IMPLEMENTED\n"); exit(-70); }
 //A tool to exit code when things are not implemented during development process, exits with code 100

@@ -2,6 +2,11 @@
 
 #include <common.h>
 
+static const int LINES_PER_FRAME = 154;
+static const int TICKS_PER_LINE = 456;
+static const int YRES = 144;
+static const int XRES = 160;
+
 typedef struct {
     u8 y;
     u8 x;
@@ -29,6 +34,10 @@ typedef struct {
 typedef struct {
     oam_entry oam_ram[40]; //oam ram has 40 of these oam entries
     u8 vram[0x2000]; //video ram is 0x2000 bytes
+
+    u32 current_frame;
+    u32 line_ticks; //how many ticks in line currently
+    u32 *video_buffer; //where we draw pixels
 } ppu_context;
 
 
@@ -41,3 +50,5 @@ u8 ppu_oam_read(u16 address);
 
 void ppu_vram_write(u16 address, u8 value); //for the vram
 u8 ppu_vram_read(u16 address);
+
+ppu_context *ppu_get_context();

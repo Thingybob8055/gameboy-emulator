@@ -35,10 +35,6 @@ void dma_tick() {
 
     ctx.active = ctx.byte < 0xA0; //tells us if its done, if reached this byte
 
-    if (!ctx.active) {
-        printf("DMA DONE!\n");
-        sleep(2);
-    }
 }
 
 bool dma_transferring() {

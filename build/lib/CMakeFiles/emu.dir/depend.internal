@@ -67,6 +67,7 @@ lib/CMakeFiles/emu.dir/emu.c.o
  ../include/dma.h
  ../include/emu.h
  ../include/instructions.h
+ ../include/ppu.h
  ../include/timer.h
  ../include/ui.h
  /home/akshay/projects/gbemu/code/lib/emu.c
@@ -91,12 +92,29 @@ lib/CMakeFiles/emu.dir/io.c.o
  ../include/instructions.h
  ../include/interrupts.h
  ../include/io.h
+ ../include/lcd.h
  ../include/timer.h
  /home/akshay/projects/gbemu/code/lib/io.c
+lib/CMakeFiles/emu.dir/lcd.c.o
+ ../include/common.h
+ ../include/dma.h
+ ../include/lcd.h
+ ../include/ppu.h
+ /home/akshay/projects/gbemu/code/lib/lcd.c
 lib/CMakeFiles/emu.dir/ppu.c.o
  ../include/common.h
+ ../include/lcd.h
  ../include/ppu.h
+ ../include/ppu_sm.h
  /home/akshay/projects/gbemu/code/lib/ppu.c
+lib/CMakeFiles/emu.dir/ppu_sm.c.o
+ ../include/common.h
+ ../include/cpu.h
+ ../include/instructions.h
+ ../include/interrupts.h
+ ../include/lcd.h
+ ../include/ppu.h
+ /home/akshay/projects/gbemu/code/lib/ppu_sm.c
 lib/CMakeFiles/emu.dir/ram.c.o
  ../include/common.h
  ../include/ram.h

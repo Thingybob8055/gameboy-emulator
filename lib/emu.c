@@ -4,6 +4,7 @@
 #include <cpu.h>
 #include <ui.h>
 #include <timer.h>
+#include <ppu.h>
 #include <dma.h>
 #include <pthread.h> //only works in linux atm
 #include <unistd.h>
@@ -29,6 +30,7 @@ emu_context *emu_get_context() {
 void *cpu_run(void *p) {
     timer_init();
     cpu_init();
+    ppu_init();
 
     ctx.running = true;
     ctx.paused = false;
@@ -71,10 +73,16 @@ int emu_run(int argc, char **argv) {
         return -1;
     }
 
+    u32 prev_frame = 0;
+
     while(!ctx.die) {
         usleep(1000);
         ui_handle_events();
-        ui_update();
+        if (prev_frame != ppu_get_context()->current_frame) {
+            ui_update();
+        }
+
+        prev_frame = ppu_get_context()->current_frame;
     }
 
     return 0;
@@ -87,6 +95,7 @@ void emu_cycles(int cpu_cycles) {
         for (int n=0; n<4; n++) {
             ctx.ticks++; //tick cpu
             timer_tick(); //tick timer
+            ppu_tick();
         }
 
         dma_tick(); //outside, tick dma (every one cpu cycle)
