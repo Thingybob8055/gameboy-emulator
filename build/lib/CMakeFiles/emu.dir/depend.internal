@@ -107,6 +107,12 @@ lib/CMakeFiles/emu.dir/ppu.c.o
  ../include/ppu.h
  ../include/ppu_sm.h
  /home/akshay/projects/gbemu/code/lib/ppu.c
+lib/CMakeFiles/emu.dir/ppu_pipeline.c.o
+ ../include/bus.h
+ ../include/common.h
+ ../include/lcd.h
+ ../include/ppu.h
+ /home/akshay/projects/gbemu/code/lib/ppu_pipeline.c
 lib/CMakeFiles/emu.dir/ppu_sm.c.o
  ../include/common.h
  ../include/cpu.h
@@ -137,5 +143,6 @@ lib/CMakeFiles/emu.dir/ui.c.o
  ../include/bus.h
  ../include/common.h
  ../include/emu.h
+ ../include/ppu.h
  ../include/ui.h
  /home/akshay/projects/gbemu/code/lib/ui.c

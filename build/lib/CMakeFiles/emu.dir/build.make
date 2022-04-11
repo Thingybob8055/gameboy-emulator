@@ -239,9 +239,22 @@ lib/CMakeFiles/emu.dir/ppu.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/emu.dir/ppu.c.s"
 	cd /home/akshay/projects/gbemu/code/build/lib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/akshay/projects/gbemu/code/lib/ppu.c -o CMakeFiles/emu.dir/ppu.c.s
 
+lib/CMakeFiles/emu.dir/ppu_pipeline.c.o: lib/CMakeFiles/emu.dir/flags.make
+lib/CMakeFiles/emu.dir/ppu_pipeline.c.o: ../lib/ppu_pipeline.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object lib/CMakeFiles/emu.dir/ppu_pipeline.c.o"
+	cd /home/akshay/projects/gbemu/code/build/lib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/emu.dir/ppu_pipeline.c.o   -c /home/akshay/projects/gbemu/code/lib/ppu_pipeline.c
+
+lib/CMakeFiles/emu.dir/ppu_pipeline.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/emu.dir/ppu_pipeline.c.i"
+	cd /home/akshay/projects/gbemu/code/build/lib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/akshay/projects/gbemu/code/lib/ppu_pipeline.c > CMakeFiles/emu.dir/ppu_pipeline.c.i
+
+lib/CMakeFiles/emu.dir/ppu_pipeline.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/emu.dir/ppu_pipeline.c.s"
+	cd /home/akshay/projects/gbemu/code/build/lib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/akshay/projects/gbemu/code/lib/ppu_pipeline.c -o CMakeFiles/emu.dir/ppu_pipeline.c.s
+
 lib/CMakeFiles/emu.dir/ppu_sm.c.o: lib/CMakeFiles/emu.dir/flags.make
 lib/CMakeFiles/emu.dir/ppu_sm.c.o: ../lib/ppu_sm.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object lib/CMakeFiles/emu.dir/ppu_sm.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object lib/CMakeFiles/emu.dir/ppu_sm.c.o"
 	cd /home/akshay/projects/gbemu/code/build/lib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/emu.dir/ppu_sm.c.o   -c /home/akshay/projects/gbemu/code/lib/ppu_sm.c
 
 lib/CMakeFiles/emu.dir/ppu_sm.c.i: cmake_force
@@ -254,7 +267,7 @@ lib/CMakeFiles/emu.dir/ppu_sm.c.s: cmake_force
 
 lib/CMakeFiles/emu.dir/ram.c.o: lib/CMakeFiles/emu.dir/flags.make
 lib/CMakeFiles/emu.dir/ram.c.o: ../lib/ram.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object lib/CMakeFiles/emu.dir/ram.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object lib/CMakeFiles/emu.dir/ram.c.o"
 	cd /home/akshay/projects/gbemu/code/build/lib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/emu.dir/ram.c.o   -c /home/akshay/projects/gbemu/code/lib/ram.c
 
 lib/CMakeFiles/emu.dir/ram.c.i: cmake_force
@@ -267,7 +280,7 @@ lib/CMakeFiles/emu.dir/ram.c.s: cmake_force
 
 lib/CMakeFiles/emu.dir/stack.c.o: lib/CMakeFiles/emu.dir/flags.make
 lib/CMakeFiles/emu.dir/stack.c.o: ../lib/stack.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object lib/CMakeFiles/emu.dir/stack.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object lib/CMakeFiles/emu.dir/stack.c.o"
 	cd /home/akshay/projects/gbemu/code/build/lib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/emu.dir/stack.c.o   -c /home/akshay/projects/gbemu/code/lib/stack.c
 
 lib/CMakeFiles/emu.dir/stack.c.i: cmake_force
@@ -280,7 +293,7 @@ lib/CMakeFiles/emu.dir/stack.c.s: cmake_force
 
 lib/CMakeFiles/emu.dir/timer.c.o: lib/CMakeFiles/emu.dir/flags.make
 lib/CMakeFiles/emu.dir/timer.c.o: ../lib/timer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object lib/CMakeFiles/emu.dir/timer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object lib/CMakeFiles/emu.dir/timer.c.o"
 	cd /home/akshay/projects/gbemu/code/build/lib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/emu.dir/timer.c.o   -c /home/akshay/projects/gbemu/code/lib/timer.c
 
 lib/CMakeFiles/emu.dir/timer.c.i: cmake_force
@@ -293,7 +306,7 @@ lib/CMakeFiles/emu.dir/timer.c.s: cmake_force
 
 lib/CMakeFiles/emu.dir/ui.c.o: lib/CMakeFiles/emu.dir/flags.make
 lib/CMakeFiles/emu.dir/ui.c.o: ../lib/ui.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object lib/CMakeFiles/emu.dir/ui.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object lib/CMakeFiles/emu.dir/ui.c.o"
 	cd /home/akshay/projects/gbemu/code/build/lib && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/emu.dir/ui.c.o   -c /home/akshay/projects/gbemu/code/lib/ui.c
 
 lib/CMakeFiles/emu.dir/ui.c.i: cmake_force
@@ -320,6 +333,7 @@ emu_OBJECTS = \
 "CMakeFiles/emu.dir/io.c.o" \
 "CMakeFiles/emu.dir/lcd.c.o" \
 "CMakeFiles/emu.dir/ppu.c.o" \
+"CMakeFiles/emu.dir/ppu_pipeline.c.o" \
 "CMakeFiles/emu.dir/ppu_sm.c.o" \
 "CMakeFiles/emu.dir/ram.c.o" \
 "CMakeFiles/emu.dir/stack.c.o" \
@@ -343,6 +357,7 @@ lib/libemu.a: lib/CMakeFiles/emu.dir/interrupts.c.o
 lib/libemu.a: lib/CMakeFiles/emu.dir/io.c.o
 lib/libemu.a: lib/CMakeFiles/emu.dir/lcd.c.o
 lib/libemu.a: lib/CMakeFiles/emu.dir/ppu.c.o
+lib/libemu.a: lib/CMakeFiles/emu.dir/ppu_pipeline.c.o
 lib/libemu.a: lib/CMakeFiles/emu.dir/ppu_sm.c.o
 lib/libemu.a: lib/CMakeFiles/emu.dir/ram.c.o
 lib/libemu.a: lib/CMakeFiles/emu.dir/stack.c.o
@@ -350,7 +365,7 @@ lib/libemu.a: lib/CMakeFiles/emu.dir/timer.c.o
 lib/libemu.a: lib/CMakeFiles/emu.dir/ui.c.o
 lib/libemu.a: lib/CMakeFiles/emu.dir/build.make
 lib/libemu.a: lib/CMakeFiles/emu.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking C static library libemu.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/akshay/projects/gbemu/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking C static library libemu.a"
 	cd /home/akshay/projects/gbemu/code/build/lib && $(CMAKE_COMMAND) -P CMakeFiles/emu.dir/cmake_clean_target.cmake
 	cd /home/akshay/projects/gbemu/code/build/lib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/emu.dir/link.txt --verbose=$(VERBOSE)
 

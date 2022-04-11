@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/emu.dir/io.c.o"
   "CMakeFiles/emu.dir/lcd.c.o"
   "CMakeFiles/emu.dir/ppu.c.o"
+  "CMakeFiles/emu.dir/ppu_pipeline.c.o"
   "CMakeFiles/emu.dir/ppu_sm.c.o"
   "CMakeFiles/emu.dir/ram.c.o"
   "CMakeFiles/emu.dir/stack.c.o"

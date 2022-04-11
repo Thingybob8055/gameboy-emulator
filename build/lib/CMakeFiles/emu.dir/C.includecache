@@ -20,23 +20,25 @@ stdio.h
 stdlib.h
 -
 
-../include/emu.h
+../include/cpu.h
+common.h
+-
+instructions.h
+-
+
+../include/dbg.h
+common.h
+-
+cpu.h
+-
+
+../include/instructions.h
 common.h
 -
 
-../include/ui.h
-common.h
--
-
-/home/akshay/projects/gbemu/code/lib/ui.c
-ui.h
--
-emu.h
+/home/akshay/projects/gbemu/code/lib/dbg.c
+dbg.h
 -
 bus.h
--
-SDL2/SDL.h
--
-SDL2/SDL_ttf.h
 -
 

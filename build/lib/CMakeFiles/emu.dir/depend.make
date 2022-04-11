@@ -107,6 +107,12 @@ lib/CMakeFiles/emu.dir/ppu.c.o: ../include/ppu.h
 lib/CMakeFiles/emu.dir/ppu.c.o: ../include/ppu_sm.h
 lib/CMakeFiles/emu.dir/ppu.c.o: ../lib/ppu.c
 
+lib/CMakeFiles/emu.dir/ppu_pipeline.c.o: ../include/bus.h
+lib/CMakeFiles/emu.dir/ppu_pipeline.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/ppu_pipeline.c.o: ../include/lcd.h
+lib/CMakeFiles/emu.dir/ppu_pipeline.c.o: ../include/ppu.h
+lib/CMakeFiles/emu.dir/ppu_pipeline.c.o: ../lib/ppu_pipeline.c
+
 lib/CMakeFiles/emu.dir/ppu_sm.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/ppu_sm.c.o: ../include/cpu.h
 lib/CMakeFiles/emu.dir/ppu_sm.c.o: ../include/instructions.h
@@ -136,6 +142,7 @@ lib/CMakeFiles/emu.dir/timer.c.o: ../lib/timer.c
 lib/CMakeFiles/emu.dir/ui.c.o: ../include/bus.h
 lib/CMakeFiles/emu.dir/ui.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/ui.c.o: ../include/emu.h
+lib/CMakeFiles/emu.dir/ui.c.o: ../include/ppu.h
 lib/CMakeFiles/emu.dir/ui.c.o: ../include/ui.h
 lib/CMakeFiles/emu.dir/ui.c.o: ../lib/ui.c
 

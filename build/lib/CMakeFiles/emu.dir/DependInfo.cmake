@@ -18,6 +18,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/akshay/projects/gbemu/code/lib/io.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/io.c.o"
   "/home/akshay/projects/gbemu/code/lib/lcd.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/lcd.c.o"
   "/home/akshay/projects/gbemu/code/lib/ppu.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/ppu.c.o"
+  "/home/akshay/projects/gbemu/code/lib/ppu_pipeline.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/ppu_pipeline.c.o"
   "/home/akshay/projects/gbemu/code/lib/ppu_sm.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/ppu_sm.c.o"
   "/home/akshay/projects/gbemu/code/lib/ram.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/ram.c.o"
   "/home/akshay/projects/gbemu/code/lib/stack.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/stack.c.o"

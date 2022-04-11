@@ -44,6 +44,7 @@ set(OLD_GLOB
   "/home/akshay/projects/gbemu/code/lib/io.c"
   "/home/akshay/projects/gbemu/code/lib/lcd.c"
   "/home/akshay/projects/gbemu/code/lib/ppu.c"
+  "/home/akshay/projects/gbemu/code/lib/ppu_pipeline.c"
   "/home/akshay/projects/gbemu/code/lib/ppu_sm.c"
   "/home/akshay/projects/gbemu/code/lib/ram.c"
   "/home/akshay/projects/gbemu/code/lib/stack.c"

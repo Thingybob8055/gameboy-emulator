@@ -561,6 +561,33 @@ ppu.c.s:
 	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/ppu.c.s
 .PHONY : ppu.c.s
 
+ppu_pipeline.o: ppu_pipeline.c.o
+
+.PHONY : ppu_pipeline.o
+
+# target to build an object file
+ppu_pipeline.c.o:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/ppu_pipeline.c.o
+.PHONY : ppu_pipeline.c.o
+
+ppu_pipeline.i: ppu_pipeline.c.i
+
+.PHONY : ppu_pipeline.i
+
+# target to preprocess a source file
+ppu_pipeline.c.i:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/ppu_pipeline.c.i
+.PHONY : ppu_pipeline.c.i
+
+ppu_pipeline.s: ppu_pipeline.c.s
+
+.PHONY : ppu_pipeline.s
+
+# target to generate assembly for a file
+ppu_pipeline.c.s:
+	cd /home/akshay/projects/gbemu/code/build && $(MAKE) -f lib/CMakeFiles/emu.dir/build.make lib/CMakeFiles/emu.dir/ppu_pipeline.c.s
+.PHONY : ppu_pipeline.c.s
+
 ppu_sm.o: ppu_sm.c.o
 
 .PHONY : ppu_sm.o
@@ -752,6 +779,9 @@ help:
 	@echo "... ppu.o"
 	@echo "... ppu.i"
 	@echo "... ppu.s"
+	@echo "... ppu_pipeline.o"
+	@echo "... ppu_pipeline.i"
+	@echo "... ppu_pipeline.s"
 	@echo "... ppu_sm.o"
 	@echo "... ppu_sm.i"
 	@echo "... ppu_sm.s"
