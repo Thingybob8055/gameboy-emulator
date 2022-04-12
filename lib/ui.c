@@ -28,6 +28,9 @@ void ui_init() {
 
     SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, 0, &sdlWindow, &sdlRenderer);
 
+    SDL_RenderSetLogicalSize(sdlRenderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+    SDL_SetWindowResizable(sdlWindow, SDL_TRUE);
+
     screen = SDL_CreateRGBSurface(0, SCREEN_WIDTH, SCREEN_HEIGHT, 32,
                                             0x00FF0000,
                                             0x0000FF00,
