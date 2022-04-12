@@ -3,6 +3,8 @@
 #include <ram.h>
 #include <cpu.h>
 #include <io.h>
+#include <ppu.h>
+#include <dma.h>
 
 // Memory Map from GB Pandocs:
 // 0x0000 - 0x3FFF : ROM Bank 0 (16KiB), From cartridge, usually a fixed bank
@@ -29,8 +31,7 @@ u8 bus_read(u16 address) {
     else if (address < 0xA000) {
         //Char/Map Data
         //TODO
-        printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
-        NO_IMPL
+        return ppu_vram_read(address);
     } 
     else if (address < 0xC000) {
         //Cartridge RAM
@@ -46,10 +47,10 @@ u8 bus_read(u16 address) {
     } 
     else if (address < 0xFEA0) {
         //Object Attribute Memory
-        //TODO: Impemented along with the PPU
-        printf("[!]UNSUPPORTED bus_read(%04X)\n", address);
-        //NO_IMPL
-        return 0x0;
+        if(dma_transferring()){
+            return 0xFF;
+        }
+        return ppu_oam_read(address);
     } 
     else if (address < 0xFF00) {
         //reserved and unusable
@@ -78,8 +79,7 @@ void bus_write(u16 address, u8 value) {
     } 
     else if (address < 0xA000) {
         //Char Map Data
-        //TODO
-        printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
+        ppu_vram_write(address, value);
         //NO_IMPL
     } 
     else if (address < 0xC000) {
@@ -95,10 +95,10 @@ void bus_write(u16 address, u8 value) {
     } 
     else if (address < 0xFEA0) {
         //OAM
-
-        //TODO
-        printf("[!]UNSUPPORTED bus_write(%04X)\n", address);
-       // NO_IMPL
+        if(dma_transferring){
+            return;
+        }
+        ppu_oam_write(address, value);
     } 
     else if (address < 0xFF00) {
         //unusable reserved
