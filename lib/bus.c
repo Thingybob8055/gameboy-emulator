@@ -91,17 +91,17 @@ void bus_write(u16 address, u8 value) {
         wram_write(address, value);
     } 
     else if (address < 0xFE00) {
-        //reserved echo ram
+        //reserved echo ram (unusable)
     } 
     else if (address < 0xFEA0) {
-        //OAM
-        if(dma_transferring){
+        //Object Attribute Memory
+        if(dma_transferring()){
             return;
         }
         ppu_oam_write(address, value);
     } 
     else if (address < 0xFF00) {
-        //unusable reserved
+        //unusable reserved and reserved area
     } 
     else if (address < 0xFF80) {
         //IO Registers...

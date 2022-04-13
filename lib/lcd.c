@@ -33,8 +33,8 @@ lcd_context *lcd_get_context() {
 
 //offset based on starting address.
 u8 lcd_read(u16 address) {
-    u8 offset = (address - 0xFF40);
     //since all the registers are listed in order, we can convert the context into a byte array based on the starting register (0xFF40), and return the required information
+    u8 offset = (address - 0xFF40);
     u8 *p = (u8 *)&ctx;
 
     return p[offset];
@@ -78,7 +78,7 @@ void lcd_write(u16 address, u8 value) {
     else if (address == 0xFF48) {
         update_palette(value & 0b11111100, 1);
     } 
-     else if (address == 0xFF49) {
-        update_palette(value & 0b11111100, 1);
+    else if (address == 0xFF49) {
+        update_palette(value & 0b11111100, 2);
     }
 }

@@ -65,11 +65,25 @@ typedef struct {
  Bit2-0 Palette number  **CGB Mode Only**     (OBP0-7)
  */
 
+//another linked list style
+typedef struct _oam_line_entry {
+    oam_entry entry;
+    struct _oam_line_entry *next;
+}oam_line_entry;
+
 typedef struct {
     oam_entry oam_ram[40]; //oam ram has 40 of these oam entries
     u8 vram[0x2000]; //video ram is 0x2000 bytes
 
     pixel_fifo_context pfc; 
+
+    u8 line_sprite_count; //0 to 10 sprites max per line
+    oam_line_entry *line_sprites; //linked list of current sprites on line
+    oam_line_entry line_entry_array[10]; //for the memory of our linked list (so that malloc and free isn't used all the time)
+
+    u8 fetched_entry_count; //FIFO fetching process
+    oam_entry fetched_entries[3]; //entries fetched during pipline
+    u8 window_line;
 
     u32 current_frame;
     u32 line_ticks; //how many ticks in line currently
