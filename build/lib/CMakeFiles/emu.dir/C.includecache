@@ -34,11 +34,11 @@ instructions.h
 common.h
 -
 
-../include/emu.h
+../include/instructions.h
 common.h
 -
 
-../include/instructions.h
+../include/io.h
 common.h
 -
 
@@ -46,49 +46,23 @@ common.h
 common.h
 -
 
-../include/timer.h
+../include/ram.h
 common.h
 -
 
-../include/ui.h
-common.h
--
-
-/home/akshay/projects/gbemu/code/lib/emu.c
-stdio.h
--
-emu.h
+/home/akshay/projects/gbemu/code/lib/bus.c
+bus.h
 -
 cart.h
 -
+ram.h
+-
 cpu.h
 -
-ui.h
--
-timer.h
+io.h
 -
 ppu.h
 -
 dma.h
--
-windows.h
--
-pthread.h
--
-unistd.h
--
-
-/home/akshay/projects/gbemu/code/lib/ui.c
-ui.h
--
-emu.h
--
-bus.h
--
-ppu.h
--
-SDL2/SDL.h
--
-SDL2/SDL_ttf.h
 -
 
