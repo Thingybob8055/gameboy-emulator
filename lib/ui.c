@@ -2,9 +2,11 @@
 #include <emu.h>
 #include <bus.h>
 #include <ppu.h>
-
+#include <gamepad.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+
+#define DEBUG_WINDOW 0
 
 //SDL Objects
 SDL_Window *sdlWindow;
@@ -28,6 +30,9 @@ void ui_init() {
 
     SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, 0, &sdlWindow, &sdlRenderer);
 
+    SDL_RenderSetLogicalSize(sdlRenderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+    SDL_SetWindowResizable(sdlWindow, SDL_TRUE);
+
     screen = SDL_CreateRGBSurface(0, SCREEN_WIDTH, SCREEN_HEIGHT, 32,
                                             0x00FF0000,
                                             0x0000FF00,
@@ -38,6 +43,7 @@ void ui_init() {
                                                 SDL_TEXTUREACCESS_STREAMING,
                                                 SCREEN_WIDTH, SCREEN_HEIGHT);
 
+#if DEBUG_WINDOW == 1
     //16 tiles by 32 tiles, 8 pixel long, scale factor for resizing
     SDL_CreateWindowAndRenderer(16 * 8 * scale, 32 * 8 * scale, 0, 
         &sdlDebugWindow, &sdlDebugRenderer);
@@ -54,13 +60,15 @@ void ui_init() {
                                             SDL_TEXTUREACCESS_STREAMING,
                                             (16 * 8 * scale) + (16 * scale), 
                                             (32 * 8 * scale) + (64 * scale));
-
+#endif
     //set the position of debug window to right of the main window
     int x, y;
     SDL_GetWindowPosition(sdlWindow, &x, &y);
+#if DEBUG_WINDOW == 1
     SDL_SetWindowPosition(sdlDebugWindow, x + SCREEN_WIDTH + 10, y);
-    SDL_SetWindowTitle(sdlWindow, "AkBoy Emu");
     SDL_SetWindowTitle(sdlDebugWindow, "Debug Window");
+#endif
+    SDL_SetWindowTitle(sdlWindow, "AkBoy Emu");
 }
 
 void delay(u32 ms) {
@@ -71,6 +79,7 @@ u32 get_ticks() {
     return SDL_GetTicks();
 }
 
+#if DEBUG_WINDOW == 1
 static unsigned long tile_colors[4] = {0xFFFFFFFF, 0xFFAAAAAA, 0xFF555555, 0xFF000000}; 
 
 void displayTile(SDL_Surface *surface, u16 startLocation, u16 tileNum, int x, int y) {
@@ -132,6 +141,7 @@ void updateDebugWindow() {
 	SDL_RenderPresent(sdlDebugRenderer);
 
 }
+#endif
 
 //public member, to update the debug window
 void ui_update() {
@@ -156,16 +166,36 @@ void ui_update() {
     SDL_RenderClear(sdlRenderer);
     SDL_RenderCopy(sdlRenderer, sdlTexture, NULL, NULL);
     SDL_RenderPresent(sdlRenderer);
+#if DEBUG_WINDOW == 1
     updateDebugWindow();
+#endif
+}
+
+void ui_on_key(bool down, u32 key_code) {
+    //switch based on key pressed
+    switch(key_code) {
+        case SDLK_x: gamepad_get_state()->b = down; break;
+        case SDLK_z: gamepad_get_state()->a = down; break;
+        case SDLK_RETURN: gamepad_get_state()->start = down; break;
+        case SDLK_BACKSPACE: gamepad_get_state()->select = down; break;
+        case SDLK_UP: gamepad_get_state()->up = down; break;
+        case SDLK_DOWN: gamepad_get_state()->down = down; break;
+        case SDLK_LEFT: gamepad_get_state()->left = down; break;
+        case SDLK_RIGHT: gamepad_get_state()->right = down; break;
+    }
 }
 
 void ui_handle_events() {
     SDL_Event e;
     while (SDL_PollEvent(&e) > 0)
     {
-        //TODO SDL_UpdateWindowSurface(sdlWindow);
-        //TODO SDL_UpdateWindowSurface(sdlTraceWindow);
-        //TODO SDL_UpdateWindowSurface(sdlDebugWindow);
+        if (e.type == SDL_KEYDOWN) {
+            ui_on_key(true, e.key.keysym.sym);
+        }
+
+        if (e.type == SDL_KEYUP) {
+            ui_on_key(false, e.key.keysym.sym);
+        }
 
         if (e.type == SDL_WINDOWEVENT && e.window.event == SDL_WINDOWEVENT_CLOSE) {
             emu_get_context()->die = true;

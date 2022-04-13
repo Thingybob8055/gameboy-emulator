@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/bus.h
-common.h
--
-
 ../include/common.h
 stdint.h
 -
@@ -20,25 +16,13 @@ stdio.h
 stdlib.h
 -
 
-../include/cpu.h
-common.h
--
-instructions.h
--
-
-../include/dbg.h
-common.h
--
-cpu.h
--
-
-../include/instructions.h
+../include/gamepad.h
 common.h
 -
 
-/home/akshay/projects/gbemu/code/lib/dbg.c
-dbg.h
+/home/akshay/projects/gbemu/code/lib/gamepad.c
+gamepad.h
 -
-bus.h
+string.h
 -
 

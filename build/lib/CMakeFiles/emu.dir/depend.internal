@@ -71,6 +71,10 @@ lib/CMakeFiles/emu.dir/emu.c.o
  ../include/timer.h
  ../include/ui.h
  /home/akshay/projects/gbemu/code/lib/emu.c
+lib/CMakeFiles/emu.dir/gamepad.c.o
+ ../include/common.h
+ ../include/gamepad.h
+ /home/akshay/projects/gbemu/code/lib/gamepad.c
 lib/CMakeFiles/emu.dir/instructions.c.o
  ../include/bus.h
  ../include/common.h
@@ -89,6 +93,7 @@ lib/CMakeFiles/emu.dir/io.c.o
  ../include/common.h
  ../include/cpu.h
  ../include/dma.h
+ ../include/gamepad.h
  ../include/instructions.h
  ../include/interrupts.h
  ../include/io.h
@@ -143,6 +148,7 @@ lib/CMakeFiles/emu.dir/ui.c.o
  ../include/bus.h
  ../include/common.h
  ../include/emu.h
+ ../include/gamepad.h
  ../include/ppu.h
  ../include/ui.h
  /home/akshay/projects/gbemu/code/lib/ui.c

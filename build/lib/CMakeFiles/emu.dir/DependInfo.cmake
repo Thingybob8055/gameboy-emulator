@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/akshay/projects/gbemu/code/lib/dbg.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/dbg.c.o"
   "/home/akshay/projects/gbemu/code/lib/dma.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/dma.c.o"
   "/home/akshay/projects/gbemu/code/lib/emu.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/emu.c.o"
+  "/home/akshay/projects/gbemu/code/lib/gamepad.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/gamepad.c.o"
   "/home/akshay/projects/gbemu/code/lib/instructions.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/instructions.c.o"
   "/home/akshay/projects/gbemu/code/lib/interrupts.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/interrupts.c.o"
   "/home/akshay/projects/gbemu/code/lib/io.c" "/home/akshay/projects/gbemu/code/build/lib/CMakeFiles/emu.dir/io.c.o"
