@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/bus.h
-common.h
--
-
-../include/cart.h
-common.h
--
-
 ../include/common.h
 stdint.h
 -
@@ -24,45 +16,13 @@ stdio.h
 stdlib.h
 -
 
-../include/cpu.h
-common.h
--
-instructions.h
--
-
-../include/dma.h
+../include/gamepad.h
 common.h
 -
 
-../include/instructions.h
-common.h
+/home/akshay/projects/gbemu/code/lib/gamepad.c
+gamepad.h
 -
-
-../include/io.h
-common.h
--
-
-../include/ppu.h
-common.h
--
-
-../include/ram.h
-common.h
--
-
-/home/akshay/projects/gbemu/code/lib/bus.c
-bus.h
--
-cart.h
--
-ram.h
--
-cpu.h
--
-io.h
--
-ppu.h
--
-dma.h
+string.h
 -
 

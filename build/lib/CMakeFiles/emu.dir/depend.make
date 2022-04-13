@@ -71,6 +71,10 @@ lib/CMakeFiles/emu.dir/emu.c.o: ../include/timer.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../include/ui.h
 lib/CMakeFiles/emu.dir/emu.c.o: ../lib/emu.c
 
+lib/CMakeFiles/emu.dir/gamepad.c.o: ../include/common.h
+lib/CMakeFiles/emu.dir/gamepad.c.o: ../include/gamepad.h
+lib/CMakeFiles/emu.dir/gamepad.c.o: ../lib/gamepad.c
+
 lib/CMakeFiles/emu.dir/instructions.c.o: ../include/bus.h
 lib/CMakeFiles/emu.dir/instructions.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/instructions.c.o: ../include/cpu.h
@@ -88,6 +92,7 @@ lib/CMakeFiles/emu.dir/io.c.o: ../include/bus.h
 lib/CMakeFiles/emu.dir/io.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/io.c.o: ../include/cpu.h
 lib/CMakeFiles/emu.dir/io.c.o: ../include/dma.h
+lib/CMakeFiles/emu.dir/io.c.o: ../include/gamepad.h
 lib/CMakeFiles/emu.dir/io.c.o: ../include/instructions.h
 lib/CMakeFiles/emu.dir/io.c.o: ../include/interrupts.h
 lib/CMakeFiles/emu.dir/io.c.o: ../include/io.h
@@ -142,6 +147,7 @@ lib/CMakeFiles/emu.dir/timer.c.o: ../lib/timer.c
 lib/CMakeFiles/emu.dir/ui.c.o: ../include/bus.h
 lib/CMakeFiles/emu.dir/ui.c.o: ../include/common.h
 lib/CMakeFiles/emu.dir/ui.c.o: ../include/emu.h
+lib/CMakeFiles/emu.dir/ui.c.o: ../include/gamepad.h
 lib/CMakeFiles/emu.dir/ui.c.o: ../include/ppu.h
 lib/CMakeFiles/emu.dir/ui.c.o: ../include/ui.h
 lib/CMakeFiles/emu.dir/ui.c.o: ../lib/ui.c
