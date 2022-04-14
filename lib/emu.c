@@ -80,14 +80,14 @@ void *cpu_run(void *p) {
     return 0;
 }
 #endif
-int emu_run(int argc, char **argv) {
-    if (argc < 2) {
-        printf("Usage: emu <rom_file>\n");
-        return -1;
-    }
+int emu_run(char *path) {
+    // if (argc < 2) {
+    //     printf("Usage: emu <rom_file>\n");
+    //     return -1;
+    // }
 
-    if (!cart_load(argv[1])) {
-        printf("Failed to load ROM file: %s\n", argv[1]);
+    if (!cart_load(path)) {
+        printf("Failed to load ROM file: %s\n", path);
         return -2;
     }
 
