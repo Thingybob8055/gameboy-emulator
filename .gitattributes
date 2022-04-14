@@ -1,4 +1,4 @@
 *.cmake linguist-detectable=false
 *.make linguist-detectable=false 
-*.cpp linguist-detectable=false 
-*.hpp linguist-detectable=false 
+# *.cpp linguist-detectable=false 
+# *.hpp linguist-detectable=false 
