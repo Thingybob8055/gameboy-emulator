@@ -16,9 +16,16 @@ mkdir build
 cmake ..
 build
 ```
+Run from the build directory using:
+```
+./gbemu/gbemu
+```
+
 ## Windows
 
 I use Visual Studio Code, and it's CMAKE extension is what I use to build it, as it automatically configures the project. A link to the extension: [CMAKE VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) 
+
+Run by opening the .exe file
 
 ## MacOS
 
