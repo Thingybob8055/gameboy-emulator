@@ -13,6 +13,7 @@ You need to have SDL2 installed to build the project.
 
 ```shell
 mkdir build
+cd build
 cmake ..
 build
 ```
