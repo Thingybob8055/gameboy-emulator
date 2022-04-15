@@ -1,11 +1,11 @@
 # gameboy-emulator
 Practicing C-Programming by developing a GameBoy Emulator
 
-I undertook this as a personal project purely for learning purposes, to gain a deeper understanding of C Programming, emulation and computer architecture in general.
+I undertook this as a personal project purely for learning purposes, to gain a deeper understanding of C Programming, emulation and computer architecture in general. The emulator can play some games like Tetris.
 
 # Build instructions
 
-GCC tools and CMake is required to buld
+GCC tools and CMake is required to build
 
 ## Linux
 
