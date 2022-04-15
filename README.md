@@ -11,14 +11,14 @@ GCC tools and CMake is required to build.
 
 You need to have SDL2 installed to build the project.
 
-```shell
+```bash
 mkdir build
 cd build
 cmake ..
 build
 ```
 Run from the build directory using:
-```
+```basg
 ./gbemu/gbemu
 ```
 
