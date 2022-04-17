@@ -124,7 +124,9 @@ int emu_run(char *path) {
 
         prev_frame = ppu_get_context()->current_frame;
     }
-
+    if (cart_need_save()) {
+        cart_battery_save();
+    }
     return 0;
 }
 
