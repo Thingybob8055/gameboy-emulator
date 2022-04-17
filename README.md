@@ -18,13 +18,13 @@ cmake ..
 build
 ```
 Run from the build directory using:
-```basg
+```bash
 ./gbemu/gbemu
 ```
 
 ## Windows
 
-I use Visual Studio Code, and it's CMAKE extension is what I use to build it, as it automatically configures the project. A link to the extension: [CMAKE VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools).
+I use Visual Studio Code, and it's CMAKE extension is what I use to build it, as it automatically configures the project. A link to the extension: [CMAKE VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools). Windows dependancies are included.
 
 Run by opening the .exe file.
 
@@ -37,6 +37,7 @@ I don't have a MacOS machine so I don't know what do to.
 - Passes all the Blaarg CPU Tests.
 - Passes DMG Acid 2 PPU test.
 - Plays **ROM only** GB games.
+- Plays GB games that use the MBC1 mapper.
 - Can display native file dialog using an open source library.
 
 # A special thanks to:
