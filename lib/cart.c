@@ -358,4 +358,3 @@ void cart_write(u16 address, u8 value) {
         }
     }
 }
-
