@@ -9,7 +9,12 @@ GCC tools and CMake is required to build.
 
 ## Linux
 
-You need to have SDL2 installed to build the project.
+You need to have SDL2 installed to build the project. Install by using:
+```bash
+sudo apt install libsdl-dev
+sudo apt install libsdl-ttf-dev
+```
+To build:
 
 ```bash
 mkdir build
