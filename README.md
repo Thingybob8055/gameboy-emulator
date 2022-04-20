@@ -20,7 +20,7 @@ To build:
 mkdir build
 cd build
 cmake ..
-build
+make
 ```
 Run from the build directory using:
 ```bash
