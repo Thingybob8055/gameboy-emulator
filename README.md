@@ -29,7 +29,22 @@ Run from the build directory using:
 
 ## Windows
 
-I use Visual Studio Code, and it's CMAKE extension is what I use to build it, as it automatically configures the project. A link to the extension: [CMAKE VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools). Windows dependancies are included.
+Windows dependancies are included.
+Make is required to build, this can be installed in many ways such as GnuWin32.
+
+To build (Powershell):
+
+```bash
+mkdir build
+cd build
+cmake .. -G "Unix Makefiles"
+make
+```
+Run from the build directory using:
+```bash
+.\gbemu\gbemu.exe
+```
+
 
 Run by opening the .exe file.
 
