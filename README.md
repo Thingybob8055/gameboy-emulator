@@ -50,7 +50,25 @@ Run by opening the .exe file.
 
 ## MacOS
 
-I don't have a MacOS machine so I don't know what do to.
+Homebrew is required to install SDL2 and cmake. Homebrew insallation instructions can be found [here](https://brew.sh).
+
+Install the following using the commands:
+```bash
+brew install sdl2
+brew 
+brew install cmake
+```
+To build from terminal:
+```bash
+mkdir build
+cd build
+cmake ..
+make
+```
+Run from the build directory using:
+```
+./chip 
+```
 
 # Project Status
 
