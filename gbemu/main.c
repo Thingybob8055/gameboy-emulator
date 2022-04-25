@@ -21,6 +21,6 @@ int main() {
         exit(-1);
     }
 
-    NFD_Quit();
     return emu_run((char*)outPath);
+    NFD_Quit();
 }
