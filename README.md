@@ -55,7 +55,7 @@ Homebrew is required to install SDL2 and cmake. Homebrew insallation instruction
 Install the following using the commands:
 ```bash
 brew install sdl2
-brew 
+brew install sdl2_ttf
 brew install cmake
 ```
 To build from terminal:
@@ -67,7 +67,7 @@ make
 ```
 Run from the build directory using:
 ```
-./chip 
+./gbemu/gbemu 
 ```
 
 # Project Status
