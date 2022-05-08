@@ -80,7 +80,7 @@ Run from the build directory using:
 
 # A special thanks to:
 - [LLD Youtube Channel](https://www.youtube.com/channel/UCRWXAQsN5S3FPDHY4Ttq1Xg)
-- [javi9dx Youtube Channel](https://www.youtube.com/channel/UC-yuWVUplUJZvieEligKBkA)
+- [javidx9 Youtube Channel](https://www.youtube.com/channel/UC-yuWVUplUJZvieEligKBkA)
 - https://gbdev.io/pandocs/
 - https://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html
 - https://github.com/geaz/emu-gameboy/blob/master/docs/The%20Cycle-Accurate%20Game%20Boy%20Docs.pdf
