@@ -25,9 +25,9 @@ endif()
 message("nfd Compiler: ${nfd_COMPILER}")
 
 # Use latest C++ by default (should be the best one), but let user override it
-if(NOT DEFINED CMAKE_CXX_STANDARD)
-  set (CMAKE_CXX_STANDARD 23)
-endif()
+# if(NOT DEFINED CMAKE_CXX_STANDARD)
+#   set (CMAKE_CXX_STANDARD 23)
+# endif()
 
 add_subdirectory(src)
 
