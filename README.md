@@ -15,6 +15,13 @@ sudo apt install cmake
 sudo apt install libsdl2-dev
 sudo apt install libsdl2-ttf-dev
 ```
+
+The native-file-dialog needs this dependancy:
+
+```bash
+sudo apt install libgtk-3-dev
+```
+
 To build:
 
 ```bash
