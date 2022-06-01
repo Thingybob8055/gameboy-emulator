@@ -58,7 +58,6 @@ u8 bus_read(u16 address) {
     } 
     else if (address < 0xFF80) {
         //IO Registers
-        //TODO: implement controllers etc
         //NO_IMPL
         return io_read(address);
     } 

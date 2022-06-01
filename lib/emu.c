@@ -131,7 +131,6 @@ int emu_run(char *path) {
 }
 
 void emu_cycles(int cpu_cycles) {
-    //TODO: needed for cycle accuracy later on
     //for each of the cpu cycles
     for (int i=0; i<cpu_cycles; i++) {
         for (int n=0; n<4; n++) {
